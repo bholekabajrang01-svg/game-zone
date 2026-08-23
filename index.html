@@ -1,1488 +1,561 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Game Zone</title>
 
 <style>
 *{
-    box-sizing:border-box;
+  box-sizing:border-box;
 }
 
 body{
-    margin:0;
-    font-family:Arial,sans-serif;
-    background:#0b1120;
-    color:white;
-}
-
-header{
-    position:sticky;
-    top:0;
-    z-index:10;
-    background:#111827;
-    padding:16px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    border-bottom:1px solid #334155;
-}
-
-.logo{
-    font-size:21px;
-    font-weight:bold;
-}
-
-.balance{
-    background:#1e293b;
-    padding:8px 12px;
-    border-radius:20px;
-    color:#facc15;
+  margin:0;
+  min-height:100vh;
+  font-family:Arial,sans-serif;
+  background:linear-gradient(135deg,#0f172a,#1e1b4b);
+  color:white;
 }
 
 .container{
-    max-width:600px;
-    margin:auto;
-    padding:15px;
-    padding-bottom:90px;
+  width:100%;
+  max-width:450px;
+  margin:auto;
+  padding:20px;
+}
+
+.logo{
+  text-align:center;
+  font-size:32px;
+  font-weight:bold;
+  margin:20px 0;
 }
 
 .card{
-    background:#111827;
-    border:1px solid #263449;
-    border-radius:18px;
-    padding:20px;
-    margin-top:15px;
+  background:#1f2937;
+  border-radius:18px;
+  padding:22px;
+  margin-bottom:18px;
+  box-shadow:0 10px 30px rgba(0,0,0,.3);
+}
+
+h2,h3{
+  text-align:center;
 }
 
 input{
-    width:100%;
-    padding:14px;
-    margin:7px 0;
-    border:1px solid #334155;
-    border-radius:10px;
-    background:#0f172a;
-    color:white;
-    font-size:16px;
+  width:100%;
+  padding:14px;
+  margin:8px 0;
+  border:0;
+  border-radius:10px;
+  background:#374151;
+  color:white;
+  font-size:16px;
+  outline:none;
 }
 
 button{
-    width:100%;
-    padding:14px;
-    margin-top:10px;
-    border:0;
-    border-radius:10px;
-    font-size:16px;
-    font-weight:bold;
-    cursor:pointer;
+  width:100%;
+  padding:14px;
+  margin-top:10px;
+  border:0;
+  border-radius:10px;
+  background:#6366f1;
+  color:white;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-.blue{
-    background:#3b82f6;
-    color:white;
+button:hover{
+  opacity:.9;
 }
 
-.green{
-    background:#22c55e;
-    color:white;
+.secondary{
+  background:#374151;
 }
 
-.gold{
-    background:#f59e0b;
-    color:white;
-}
-
-.red{
-    background:#ef4444;
-    color:white;
-}
-
-.gray{
-    background:#334155;
-    color:white;
+.danger{
+  background:#dc2626;
 }
 
 .hidden{
-    display:none !important;
+  display:none;
 }
 
 .message{
-    margin-top:12px;
-    color:#facc15;
-    text-align:center;
+  text-align:center;
+  margin-top:12px;
+  min-height:20px;
 }
 
-/* LOGIN */
-
-.auth-title{
-    text-align:center;
-    font-size:28px;
+.balance{
+  text-align:center;
+  background:#111827;
+  padding:18px;
+  border-radius:15px;
+  margin:15px 0;
 }
 
-.auth-icon{
-    text-align:center;
-    font-size:60px;
-}
-
-/* HOME */
-
-.welcome{
-    font-size:24px;
-    margin:0;
-}
-
-.subtitle{
-    color:#94a3b8;
-}
-
-.balance-box{
-    margin-top:18px;
-    background:#1e293b;
-    padding:18px;
-    border-radius:15px;
-    text-align:center;
-}
-
-.balance-number{
-    font-size:30px;
-    color:#facc15;
-    font-weight:bold;
-    margin-top:6px;
-}
-
-/* GAMES */
-
-.section-title{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.section-title h2{
-    margin:0;
-}
-
-.games{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
-    margin-top:15px;
+.coins{
+  font-size:30px;
+  font-weight:bold;
+  margin-top:5px;
 }
 
 .game{
-    background:#1e293b;
-    border:1px solid #334155;
-    border-radius:15px;
-    padding:18px 10px;
-    text-align:center;
+  text-align:center;
 }
 
-.game-icon{
-    font-size:48px;
+.symbols{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  margin:20px 0;
 }
 
-.game h3{
-    margin:8px 0;
+.slot{
+  width:80px;
+  height:80px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#111827;
+  border-radius:12px;
+  font-size:40px;
 }
 
-.game p{
-    color:#94a3b8;
-    font-size:13px;
-    min-height:32px;
+.small{
+  font-size:14px;
+  color:#cbd5e1;
+  text-align:center;
 }
 
-/* GAME SCREEN */
-
-.game-screen{
-    text-align:center;
+.link{
+  color:#a5b4fc;
+  cursor:pointer;
+  text-align:center;
+  margin-top:15px;
 }
 
-.reels{
-    display:flex;
-    justify-content:center;
-    gap:10px;
-    margin:25px 0;
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
-.reel{
-    width:85px;
-    height:85px;
-    background:white;
-    color:#111827;
-    border-radius:15px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:42px;
+.header button{
+  width:auto;
+  padding:9px 14px;
+  margin:0;
 }
 
-.dice{
-    font-size:100px;
-    margin:25px;
-}
-
-.number-buttons{
-    display:grid;
-    grid-template-columns:repeat(5,1fr);
-    gap:7px;
-}
-
-.number-buttons button{
-    margin:0;
-}
-
-.card-symbol{
-    font-size:100px;
-    margin:25px;
-}
-
-.result{
-    min-height:30px;
-    margin:15px 0;
-    font-size:18px;
-    font-weight:bold;
-}
-
-/* PROFILE */
-
-.profile-avatar{
-    width:90px;
-    height:90px;
-    margin:auto;
-    border-radius:50%;
-    background:#3b82f6;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:45px;
-}
-
-.profile-name{
-    text-align:center;
-    font-size:22px;
-}
-
-.info{
-    background:#1e293b;
-    padding:15px;
-    border-radius:10px;
-    margin-top:10px;
-}
-
-/* BOTTOM NAV */
-
-.bottom-nav{
-    position:fixed;
-    bottom:0;
-    left:0;
-    right:0;
-    height:70px;
-    background:#111827;
-    border-top:1px solid #334155;
-    display:flex;
-    justify-content:center;
-    gap:25px;
-    z-index:20;
-}
-
-.nav-btn{
-    background:none;
-    color:#94a3b8;
-    width:auto;
-    margin:0;
-    padding:10px 15px;
-}
-
-.nav-btn.active{
-    color:#60a5fa;
+.user{
+  color:#c4b5fd;
 }
 </style>
 </head>
 
 <body>
 
-
-<!-- HEADER -->
-
-<header id="mainHeader" class="hidden">
-
-<div class="logo">
-🎮 Game Zone
-</div>
-
-<div class="balance">
-💰 <span id="headerCoins">1000</span>
-</div>
-
-</header>
-
-
 <div class="container">
 
+  <div class="logo">🎮 Game Zone</div>
 
-<!-- LOGIN -->
+  <!-- LOGIN -->
+  <div id="loginPage" class="card">
 
-<div id="loginPage" class="card">
+    <h2>🔐 Login</h2>
 
-<div class="auth-icon">
-🎮
-</div>
+    <input id="loginUser" type="text" placeholder="Username">
 
-<h1 class="auth-title">
-Game Zone
-</h1>
+    <input id="loginPass" type="password" placeholder="Password">
 
-<p style="text-align:center;color:#94a3b8;">
-Login करके games खेलें
-</p>
+    <button onclick="login()">Login</button>
 
-<input
-id="loginUsername"
-type="text"
-placeholder="Username">
+    <div id="loginMsg" class="message"></div>
 
-<input
-id="loginPassword"
-type="password"
-placeholder="Password">
+    <div class="link" onclick="showSignup()">
+      Don't have an account? Signup
+    </div>
 
-<button class="blue" onclick="login()">
-🔐 Login
-</button>
+  </div>
 
-<button class="gray" onclick="openSignup()">
-📝 Create Account
-</button>
 
-<div id="loginMessage" class="message"></div>
+  <!-- SIGNUP -->
+  <div id="signupPage" class="card hidden">
 
-</div>
+    <h2>📝 Create Account</h2>
 
+    <input id="signupUser" type="text" placeholder="Choose username">
 
-<!-- SIGNUP -->
+    <input id="signupPass" type="password" placeholder="Choose password">
 
-<div id="signupPage" class="card hidden">
+    <input id="signupPass2" type="password" placeholder="Confirm password">
 
-<div class="auth-icon">
-📝
-</div>
+    <button onclick="signup()">Create Account</button>
 
-<h2 style="text-align:center;">
-Create Account
-</h2>
+    <div id="signupMsg" class="message"></div>
 
-<input
-id="signupUsername"
-type="text"
-placeholder="Username">
+    <div class="link" onclick="showLogin()">
+      Already have an account? Login
+    </div>
 
-<input
-id="signupPassword"
-type="password"
-placeholder="Password">
+  </div>
 
-<button class="green" onclick="signup()">
-Create Account
-</button>
 
-<button class="gray" onclick="openLogin()">
-Back to Login
-</button>
+  <!-- HOME -->
+  <div id="homePage" class="hidden">
 
-<div id="signupMessage" class="message"></div>
+    <div class="card">
 
-</div>
+      <div class="header">
+        <div>
+          Welcome 👋
+          <div class="user" id="usernameDisplay"></div>
+        </div>
 
+        <button class="danger" onclick="logout()">Logout</button>
+      </div>
 
-<!-- HOME -->
+      <div class="balance">
+        🪙 Virtual Coins
+        <div class="coins" id="coinDisplay">1000</div>
+      </div>
 
-<div id="homePage" class="hidden">
+    </div>
 
-<div class="card">
 
-<p class="subtitle">
-Welcome back 👋
-</p>
+    <!-- DEMO GAME -->
+    <div class="card game">
 
-<h1 class="welcome">
-<span id="homeUsername"></span>
-</h1>
+      <h2>🎰 Lucky Demo</h2>
 
-<div class="balance-box">
+      <p class="small">
+        Demo game using virtual coins only.
+      </p>
 
-<div>
-Your Demo Coins
-</div>
+      <div class="symbols">
+        <div class="slot" id="s1">❓</div>
+        <div class="slot" id="s2">❓</div>
+        <div class="slot" id="s3">❓</div>
+      </div>
 
-<div class="balance-number">
-💰 <span id="homeCoins">1000</span>
-</div>
+      <button onclick="playGame()">PLAY — 50 COINS</button>
 
-</div>
+      <div id="gameMsg" class="message"></div>
 
-</div>
+    </div>
 
 
-<div class="card">
+    <div class="card">
 
-<div class="section-title">
+      <h3>🎮 Games</h3>
 
-<h2>
-🎮 Games
-</h2>
+      <button onclick="comingSoon()">🎲 Dice Demo</button>
+      <button onclick="comingSoon()">🃏 Card Demo</button>
+      <button onclick="comingSoon()">🎯 Lucky Number</button>
 
-<span>
-Demo
-</span>
+    </div>
 
-</div>
-
-
-<div class="games">
-
-
-<div class="game">
-
-<div class="game-icon">
-🎰
-</div>
-
-<h3>Slots</h3>
-
-<p>
-Lucky Slots Demo
-</p>
-
-<button
-class="gold"
-onclick="openGame('slots')">
-
-PLAY
-
-</button>
-
-</div>
-
-
-<div class="game">
-
-<div class="game-icon">
-🎲
-</div>
-
-<h3>Dice</h3>
-
-<p>
-Roll the dice
-</p>
-
-<button
-class="blue"
-onclick="openGame('dice')">
-
-PLAY
-
-</button>
-
-</div>
-
-
-<div class="game">
-
-<div class="game-icon">
-🎯
-</div>
-
-<h3>Lucky</h3>
-
-<p>
-Guess the number
-</p>
-
-<button
-class="green"
-onclick="openGame('number')">
-
-PLAY
-
-</button>
-
-</div>
-
-
-<div class="game">
-
-<div class="game-icon">
-🃏
-</div>
-
-<h3>Cards</h3>
-
-<p>
-Draw a card
-</p>
-
-<button
-class="blue"
-onclick="openGame('cards')">
-
-PLAY
-
-</button>
-
-</div>
-
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- SLOTS -->
-
-<div id="slotsPage" class="card game-screen hidden">
-
-<h2>🎰 Lucky Slots</h2>
-
-<p>
-Spin cost: 10 Demo Coins
-</p>
-
-<div class="reels">
-
-<div class="reel" id="reel1">
-🍒
-</div>
-
-<div class="reel" id="reel2">
-🍋
-</div>
-
-<div class="reel" id="reel3">
-🍊
-</div>
-
-</div>
-
-<button
-class="gold"
-id="spinButton"
-onclick="spinSlots()">
-
-🎰 SPIN
-
-</button>
-
-<div
-id="slotsResult"
-class="result">
-
-Ready!
-
-</div>
-
-<button
-class="gray"
-onclick="showHome()">
-
-⬅ Back
-
-</button>
-
-</div>
-
-
-<!-- DICE -->
-
-<div id="dicePage" class="card game-screen hidden">
-
-<h2>🎲 Dice</h2>
-
-<div
-id="diceDisplay"
-class="dice">
-
-🎲
-
-</div>
-
-<button
-class="blue"
-onclick="rollDice()">
-
-ROLL — 10 COINS
-
-</button>
-
-<div
-id="diceResult"
-class="result">
-
-Ready!
-
-</div>
-
-<button
-class="gray"
-onclick="showHome()">
-
-⬅ Back
-
-</button>
-
-</div>
-
-
-<!-- NUMBER -->
-
-<div id="numberPage" class="card game-screen hidden">
-
-<h2>🎯 Lucky Number</h2>
-
-<p>
-10 Demo Coins per attempt
-</p>
-
-<div class="number">
-❓
-</div>
-
-<div class="number-buttons">
-
-<button
-class="green"
-onclick="guessNumber(1)">
-1
-</button>
-
-<button
-class="green"
-onclick="guessNumber(2)">
-2
-</button>
-
-<button
-class="green"
-onclick="guessNumber(3)">
-3
-</button>
-
-<button
-class="green"
-onclick="guessNumber(4)">
-4
-</button>
-
-<button
-class="green"
-onclick="guessNumber(5)">
-5
-</button>
-
-</div>
-
-<div
-id="numberResult"
-class="result">
-
-Choose a number
-
-</div>
-
-<button
-class="gray"
-onclick="showHome()">
-
-⬅ Back
-
-</button>
-
-</div>
-
-
-<!-- CARDS -->
-
-<div id="cardsPage" class="card game-screen hidden">
-
-<h2>🃏 Cards</h2>
-
-<div
-id="cardDisplay"
-class="card-symbol">
-
-🃏
-
-</div>
-
-<button
-class="blue"
-onclick="drawCard()">
-
-DRAW CARD
-
-</button>
-
-<div
-id="cardResult"
-class="result">
-
-Ready!
-
-</div>
-
-<button
-class="gray"
-onclick="showHome()">
-
-⬅ Back
-
-</button>
-
-</div>
-
-
-<!-- PROFILE -->
-
-<div id="profilePage" class="card hidden">
-
-<div class="profile-avatar">
-👤
-</div>
-
-<h2 class="profile-name">
-<span id="profileName"></span>
-</h2>
-
-<div class="info">
-Username:
-<strong id="profileUsername"></strong>
-</div>
-
-<div class="info">
-💰 Demo Coins:
-<strong id="profileCoins"></strong>
-</div>
-
-<button
-class="red"
-onclick="logout()">
-
-🚪 Logout
-
-</button>
-
-</div>
-
-
-</div>
-
-
-<!-- BOTTOM NAV -->
-
-<div
-id="bottomNav"
-class="bottom-nav hidden">
-
-<button
-class="nav-btn active"
-onclick="showHome()">
-
-🏠<br>
-Home
-
-</button>
-
-<button
-class="nav-btn"
-onclick="showProfile()">
-
-👤<br>
-Profile
-
-</button>
+  </div>
 
 </div>
 
 
 <script>
 
-let coins =
-Number(
-localStorage.getItem("gameCoins")
-);
+let currentUser = localStorage.getItem("currentUser");
 
-if(
-isNaN(coins) ||
-coins < 0
-){
-coins = 1000;
+function getUsers(){
+  return JSON.parse(localStorage.getItem("gameUsers") || "{}");
 }
 
-let spinning = false;
-
-
-/* SAVE */
-
-function saveCoins(){
-
-localStorage.setItem(
-"gameCoins",
-coins
-);
-
-updateCoins();
-
+function saveUsers(users){
+  localStorage.setItem("gameUsers",JSON.stringify(users));
 }
 
 
-/* UPDATE */
+function showSignup(){
 
-function updateCoins(){
+  document.getElementById("loginPage").classList.add("hidden");
+  document.getElementById("signupPage").classList.remove("hidden");
 
-document
-.querySelectorAll(
-"#headerCoins,#homeCoins,#profileCoins"
-)
-.forEach(function(el){
-
-el.innerText = coins;
-
-});
-
+  document.getElementById("loginMsg").innerText="";
 }
 
 
-/* HIDE ALL */
+function showLogin(){
 
-function hidePages(){
+  document.getElementById("signupPage").classList.add("hidden");
+  document.getElementById("loginPage").classList.remove("hidden");
 
-document
-.querySelectorAll(
-"#loginPage,#signupPage,#homePage,#slotsPage,#dicePage,#numberPage,#cardsPage,#profilePage"
-)
-.forEach(function(page){
-
-page.classList.add("hidden");
-
-});
-
+  document.getElementById("signupMsg").innerText="";
 }
 
-
-/* LOGIN */
-
-function login(){
-
-let username =
-document
-.getElementById("loginUsername")
-.value.trim();
-
-let password =
-document
-.getElementById("loginPassword")
-.value;
-
-let savedUsername =
-localStorage.getItem(
-"gameUsername"
-);
-
-let savedPassword =
-localStorage.getItem(
-"gamePassword"
-);
-
-
-if(
-username === savedUsername &&
-password === savedPassword
-){
-
-localStorage.setItem(
-"loggedIn",
-"true"
-);
-
-showHome();
-
-}else{
-
-document
-.getElementById("loginMessage")
-.innerText =
-"Username या Password गलत है।";
-
-}
-
-}
-
-
-/* SIGNUP */
 
 function signup(){
 
-let username =
-document
-.getElementById("signupUsername")
-.value.trim();
+  const username =
+    document.getElementById("signupUser").value.trim();
 
-let password =
-document
-.getElementById("signupPassword")
-.value;
+  const password =
+    document.getElementById("signupPass").value;
 
-let message =
-document
-.getElementById("signupMessage");
+  const password2 =
+    document.getElementById("signupPass2").value;
+
+  const msg =
+    document.getElementById("signupMsg");
 
 
-if(
-username === "" ||
-password === ""
-){
+  if(username.length < 3){
 
-message.innerText =
-"सभी fields भरें।";
+    msg.innerText="Username कम से कम 3 characters का होना चाहिए.";
+    return;
 
-return;
-
-}
+  }
 
 
-if(password.length < 4){
+  if(password.length < 4){
 
-message.innerText =
-"Password कम से कम 4 characters का रखें।";
+    msg.innerText="Password कम से कम 4 characters का होना चाहिए.";
+    return;
 
-return;
-
-}
+  }
 
 
-localStorage.setItem(
-"gameUsername",
-username
-);
+  if(password !== password2){
 
-localStorage.setItem(
-"gamePassword",
-password
-);
+    msg.innerText="Passwords match नहीं कर रहे.";
+    return;
 
-localStorage.setItem(
-"gameCoins",
-1000
-);
-
-coins = 1000;
-
-message.innerText =
-"Account बन गया! अब Login करें।";
-
-}
+  }
 
 
-/* SIGNUP PAGE */
-
-function openSignup(){
-
-hidePages();
-
-document
-.getElementById("signupPage")
-.classList.remove("hidden");
-
-}
+  const users = getUsers();
 
 
-/* LOGIN PAGE */
+  if(users[username]){
 
-function openLogin(){
+    msg.innerText="यह username पहले से मौजूद है.";
+    return;
 
-hidePages();
+  }
 
-document
-.getElementById("loginPage")
-.classList.remove("hidden");
+
+  users[username] = {
+
+    password:password,
+
+    coins:1000
+
+  };
+
+
+  saveUsers(users);
+
+  msg.innerText="Account बन गया! Login कर रहे हैं...";
+
+
+  setTimeout(()=>{
+
+    currentUser=username;
+
+    localStorage.setItem("currentUser",username);
+
+    showHome();
+
+  },700);
 
 }
 
 
-/* HOME */
+function login(){
+
+  const username =
+    document.getElementById("loginUser").value.trim();
+
+  const password =
+    document.getElementById("loginPass").value;
+
+  const msg =
+    document.getElementById("loginMsg");
+
+
+  const users=getUsers();
+
+
+  if(!users[username]){
+
+    msg.innerText="Username नहीं मिला.";
+    return;
+
+  }
+
+
+  if(users[username].password !== password){
+
+    msg.innerText="Password गलत है.";
+    return;
+
+  }
+
+
+  currentUser=username;
+
+  localStorage.setItem("currentUser",username);
+
+  showHome();
+
+}
+
 
 function showHome(){
 
-hidePages();
+  document.getElementById("loginPage").classList.add("hidden");
+  document.getElementById("signupPage").classList.add("hidden");
+  document.getElementById("homePage").classList.remove("hidden");
 
-document
-.getElementById("homePage")
-.classList.remove("hidden");
+  document.getElementById("usernameDisplay").innerText=
+    currentUser;
 
-document
-.getElementById("mainHeader")
-.classList.remove("hidden");
-
-document
-.getElementById("bottomNav")
-.classList.remove("hidden");
-
-
-let username =
-localStorage.getItem(
-"gameUsername"
-);
-
-document
-.getElementById("homeUsername")
-.innerText =
-username || "Player";
-
-updateCoins();
+  updateCoins();
 
 }
 
 
-/* PROFILE */
+function updateCoins(){
 
-function showProfile(){
+  const users=getUsers();
 
-hidePages();
+  if(!users[currentUser]) return;
 
-document
-.getElementById("profilePage")
-.classList.remove("hidden");
-
-document
-.getElementById("mainHeader")
-.classList.remove("hidden");
-
-document
-.getElementById("bottomNav")
-.classList.remove("hidden");
-
-
-let username =
-localStorage.getItem(
-"gameUsername"
-);
-
-document
-.getElementById("profileName")
-.innerText =
-username || "Player";
-
-document
-.getElementById("profileUsername")
-.innerText =
-username || "Player";
-
-updateCoins();
+  document.getElementById("coinDisplay").innerText=
+    users[currentUser].coins;
 
 }
 
 
-/* OPEN GAME */
+function playGame(){
 
-function openGame(game){
+  const users=getUsers();
 
-hidePages();
-
-if(game === "slots"){
-
-document
-.getElementById("slotsPage")
-.classList.remove("hidden");
-
-}
-
-if(game === "dice"){
-
-document
-.getElementById("dicePage")
-.classList.remove("hidden");
-
-}
-
-if(game === "number"){
-
-document
-.getElementById("numberPage")
-.classList.remove("hidden");
-
-}
-
-if(game === "cards"){
-
-document
-.getElementById("cardsPage")
-.classList.remove("hidden");
-
-}
-
-}
+  if(!users[currentUser]) return;
 
 
-/* SLOTS */
+  if(users[currentUser].coins < 50){
 
-const symbols = [
-"🍒",
-"🍋",
-"🍊",
-"🍉",
-"⭐",
-"7️⃣"
-];
+    document.getElementById("gameMsg").innerText=
+      "❌ Coins कम हैं.";
+
+    return;
+
+  }
 
 
-function randomSymbol(){
+  users[currentUser].coins -= 50;
 
-return symbols[
-Math.floor(
-Math.random()*symbols.length
-)
-];
+  saveUsers(users);
 
-}
+  updateCoins();
 
 
-function spinSlots(){
+  const symbols=[
+    "🍒",
+    "🍋",
+    "🍊",
+    "⭐",
+    "💎",
+    "7️⃣"
+  ];
 
-if(spinning){
-return;
-}
 
-if(coins < 10){
+  const a=symbols[Math.floor(Math.random()*symbols.length)];
+  const b=symbols[Math.floor(Math.random()*symbols.length)];
+  const c=symbols[Math.floor(Math.random()*symbols.length)];
 
-document
-.getElementById("slotsResult")
-.innerText =
-"❌ पर्याप्त Demo Coins नहीं हैं।";
 
-return;
+  document.getElementById("s1").innerText=a;
+  document.getElementById("s2").innerText=b;
+  document.getElementById("s3").innerText=c;
+
+
+  if(a===b && b===c){
+
+    users[currentUser].coins += 500;
+
+    saveUsers(users);
+
+    updateCoins();
+
+    document.getElementById("gameMsg").innerText=
+      "🎉 JACKPOT! +500 virtual coins";
+
+  }
+
+  else if(a===b || b===c || a===c){
+
+    users[currentUser].coins += 100;
+
+    saveUsers(users);
+
+    updateCoins();
+
+    document.getElementById("gameMsg").innerText=
+      "✨ Match! +100 virtual coins";
+
+  }
+
+  else{
+
+    document.getElementById("gameMsg").innerText=
+      "😄 Try again! 50 virtual coins used.";
+
+  }
 
 }
 
-
-coins -= 10;
-
-saveCoins();
-
-spinning = true;
-
-document
-.getElementById("spinButton")
-.disabled = true;
-
-
-let animation =
-setInterval(function(){
-
-document
-.getElementById("reel1")
-.innerText =
-randomSymbol();
-
-document
-.getElementById("reel2")
-.innerText =
-randomSymbol();
-
-document
-.getElementById("reel3")
-.innerText =
-randomSymbol();
-
-},100);
-
-
-setTimeout(function(){
-
-clearInterval(animation);
-
-let a = randomSymbol();
-let b = randomSymbol();
-let c = randomSymbol();
-
-
-document
-.getElementById("reel1")
-.innerText = a;
-
-document
-.getElementById("reel2")
-.innerText = b;
-
-document
-.getElementById("reel3")
-.innerText = c;
-
-
-if(
-a === b &&
-b === c
-){
-
-coins += 100;
-
-document
-.getElementById("slotsResult")
-.innerText =
-"🎉 JACKPOT! +100";
-
-}
-
-else if(
-a === b ||
-b === c ||
-a === c
-){
-
-coins += 25;
-
-document
-.getElementById("slotsResult")
-.innerText =
-"✨ WIN! +25";
-
-}
-
-else{
-
-document
-.getElementById("slotsResult")
-.innerText =
-"😔 No Win";
-
-}
-
-
-saveCoins();
-
-spinning = false;
-
-document
-.getElementById("spinButton")
-.disabled = false;
-
-},1500);
-
-}
-
-
-/* DICE */
-
-function rollDice(){
-
-if(coins < 10){
-
-document
-.getElementById("diceResult")
-.innerText =
-"❌ Coins कम हैं।";
-
-return;
-
-}
-
-
-coins -= 10;
-
-
-let number =
-Math.floor(
-Math.random()*6
-)+1;
-
-
-let faces = [
-"⚀",
-"⚁",
-"⚂",
-"⚃",
-"⚄",
-"⚅"
-];
-
-
-document
-.getElementById("diceDisplay")
-.innerText =
-faces[number-1];
-
-
-if(number >= 4){
-
-coins += 30;
-
-document
-.getElementById("diceResult")
-.innerText =
-"🎉 WIN! +30";
-
-}else{
-
-document
-.getElementById("diceResult")
-.innerText =
-"😔 No Win";
-
-}
-
-
-saveCoins();
-
-}
-
-
-/* NUMBER */
-
-function guessNumber(choice){
-
-if(coins < 10){
-
-document
-.getElementById("numberResult")
-.innerText =
-"❌ Coins कम हैं।";
-
-return;
-
-}
-
-
-coins -= 10;
-
-
-let answer =
-Math.floor(
-Math.random()*5
-)+1;
-
-
-if(choice === answer){
-
-coins += 50;
-
-document
-.getElementById("numberResult")
-.innerText =
-"🎉 सही! +50 Coins";
-
-}else{
-
-document
-.getElementById("numberResult")
-.innerText =
-"❌ गलत! सही नंबर: " +
-answer;
-
-}
-
-
-saveCoins();
-
-}
-
-
-/* CARDS */
-
-function drawCard(){
-
-const cards = [
-"🂡",
-"🂢",
-"🂣",
-"🂤",
-"🂥",
-"🂦",
-"🂧",
-"🂨",
-"🂩",
-"🂪"
-];
-
-
-let card =
-cards[
-Math.floor(
-Math.random()*cards.length
-)
-];
-
-
-document
-.getElementById("cardDisplay")
-.innerText =
-card;
-
-document
-.getElementById("cardResult")
-.innerText =
-"🃏 Card Drawn!";
-
-}
-
-
-/* LOGOUT */
 
 function logout(){
 
-localStorage.removeItem(
-"loggedIn"
-);
+  localStorage.removeItem("currentUser");
 
-document
-.getElementById("mainHeader")
-.classList.add("hidden");
+  currentUser=null;
 
-document
-.getElementById("bottomNav")
-.classList.add("hidden");
+  document.getElementById("homePage").classList.add("hidden");
 
-hidePages();
+  showLogin();
 
-document
-.getElementById("loginPage")
-.classList.remove("hidden");
+}
+
+
+function comingSoon(){
+
+  alert("यह Demo Game जल्द जोड़ा जाएगा.");
 
 }
 
 
 /* AUTO LOGIN */
 
-window.onload =
-function(){
+if(currentUser){
 
-let loggedIn =
-localStorage.getItem(
-"loggedIn"
-);
+  const users=getUsers();
 
-let username =
-localStorage.getItem(
-"gameUsername"
-);
+  if(users[currentUser]){
 
+    showHome();
 
-if(
-loggedIn === "true" &&
-username
-){
+  }else{
 
-showHome();
+    localStorage.removeItem("currentUser");
 
-}else{
-
-openLogin();
+  }
 
 }
-
-};
 
 </script>
 
