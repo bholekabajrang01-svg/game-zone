@@ -1,441 +1,504 @@
 <!DOCTYPE html>
-< lang="en">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-<title>Game Zone Pro</title>
+<title>Game Zone Pro - Virtual Demo</title>
 
 <style>
+*{box-sizing:border-box}
 
-*{
-    box-sizing:border-box;
+:root{
+ --bg:#070914;
+ --card:#151b35;
+ --card2:#0e1429;
+ --text:#fff;
+ --muted:#9ca7c5;
+ --accent:#7568ff;
+ --gold:#ffd85a;
+ --danger:#e74444;
+ --border:#30395e;
 }
 
 body{
-    margin:0;
-    font-family:Arial,sans-serif;
-    color:white;
-    min-height:100vh;
-    background:
-    radial-gradient(circle at top,#302080 0,#11152f 42%,#070914 100%);
+ margin:0;
+ font-family:Arial,sans-serif;
+ color:var(--text);
+ background:radial-gradient(circle at top,#302080 0,#11152f 42%,var(--bg) 100%);
+ min-height:100vh;
+}
+
+body.light{
+ --bg:#eef1fa;
+ --card:#fff;
+ --card2:#f1f3fa;
+ --text:#171a2a;
+ --muted:#65708c;
+ --border:#d6dbea;
+ background:linear-gradient(135deg,#e9e7ff,#f7f8fc);
 }
 
 .container{
-    width:92%;
-    max-width:720px;
-    margin:auto;
-    padding:18px 0 60px;
+ width:94%;
+ max-width:760px;
+ margin:auto;
+ padding:18px 0 60px;
 }
 
 .hidden{
-    display:none!important;
+ display:none!important;
 }
 
-
-/* HEADER */
-
 .logo{
-    text-align:center;
-    font-size:44px;
-    font-weight:900;
-    margin:8px 0 2px;
-    text-shadow:0 5px 20px rgba(120,100,255,.5);
+ text-align:center;
+ font-size:42px;
+ font-weight:900;
+ margin:8px 0 2px;
 }
 
 .tagline{
-    text-align:center;
-    color:#aeb7d6;
-    margin-bottom:25px;
+ text-align:center;
+ color:var(--muted);
+ margin-bottom:22px;
 }
-
-
-/* CARD */
 
 .card{
-    background:rgba(22,28,53,.94);
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:26px;
-    padding:24px;
-    margin-bottom:20px;
-    box-shadow:0 18px 45px rgba(0,0,0,.32);
+ background:rgba(21,27,53,.96);
+ border:1px solid var(--border);
+ border-radius:24px;
+ padding:22px;
+ margin-bottom:18px;
+ box-shadow:0 18px 45px rgba(0,0,0,.28);
 }
 
-
-/* LOGIN */
+body.light .card{
+ background:var(--card);
+}
 
 .title{
-    text-align:center;
-    font-size:29px;
-    margin:5px 0 20px;
+ text-align:center;
+ font-size:28px;
+ margin:4px 0 18px;
 }
 
 input{
-    width:100%;
-    padding:17px;
-    margin:7px 0;
-    border:1px solid #414a70;
-    border-radius:16px;
-    background:#11172d;
-    color:white;
-    font-size:17px;
-    outline:none;
-}
-
-input:focus{
-    border-color:#8275ff;
-    box-shadow:0 0 0 3px rgba(130,117,255,.12);
+ width:100%;
+ padding:16px;
+ margin:7px 0;
+ border:1px solid var(--border);
+ border-radius:15px;
+ background:var(--card2);
+ color:var(--text);
+ font-size:17px;
+ outline:none;
 }
 
 button{
-    width:100%;
-    padding:17px;
-    margin-top:12px;
-    border:0;
-    border-radius:16px;
-    color:white;
-    background:linear-gradient(135deg,#7167ff,#5549d8);
-    font-size:18px;
-    font-weight:bold;
-    cursor:pointer;
-    transition:.2s;
+ width:100%;
+ padding:16px;
+ margin-top:10px;
+ border:0;
+ border-radius:15px;
+ color:#fff;
+ background:linear-gradient(135deg,#7568ff,#5146d7);
+ font-size:17px;
+ font-weight:bold;
+ cursor:pointer;
 }
 
 button:active{
-    transform:scale(.96);
+ transform:scale(.97);
 }
 
 .link{
-    text-align:center;
-    margin-top:20px;
-    color:#aeb8ff;
-    cursor:pointer;
+ text-align:center;
+ margin-top:18px;
+ color:#aeb8ff;
+ cursor:pointer;
 }
 
-
-/* DASHBOARD HEADER */
-
-.dashboard-head{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:12px;
+.dashboard-head,
+.section-title{
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:10px;
 }
 
 .welcome{
-    color:#aeb7d6;
-    font-size:15px;
+ color:var(--muted);
+ font-size:14px;
 }
 
 .username{
-    color:#c3baff;
-    font-size:26px;
-    font-weight:bold;
-    margin-top:4px;
+ color:#bfb6ff;
+ font-size:25px;
+ font-weight:bold;
+ margin-top:3px;
 }
 
 .logout{
-    width:auto;
-    margin:0;
-    padding:12px 18px;
-    background:#e43838;
-    font-size:15px;
+ width:auto;
+ margin:0;
+ padding:11px 16px;
+ background:var(--danger);
+ font-size:14px;
 }
 
-
-/* COINS */
-
 .coin-panel{
-    margin-top:20px;
-    padding:24px;
-    border-radius:23px;
-    text-align:center;
-    background:
-    linear-gradient(135deg,#171f42,#10152b);
-    border:1px solid rgba(255,255,255,.08);
+ margin-top:18px;
+ padding:22px;
+ border-radius:21px;
+ text-align:center;
+ background:linear-gradient(135deg,#171f42,#10152b);
 }
 
 .coin-label{
-    color:#b8c0d8;
-    font-size:18px;
+ color:var(--muted);
+ font-size:17px;
 }
 
 .coin-number{
-    font-size:52px;
-    font-weight:900;
-    margin-top:4px;
-    color:#ffd85a;
-    text-shadow:0 4px 18px rgba(255,210,70,.25);
+ font-size:50px;
+ font-weight:900;
+ color:var(--gold);
+ margin-top:4px;
 }
 
-
-/* STATS */
-
 .stats{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:10px;
-    margin-top:14px;
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:9px;
+ margin-top:12px;
 }
 
 .stat{
-    background:#10162c;
-    border-radius:18px;
-    text-align:center;
-    padding:14px 5px;
+ background:var(--card2);
+ border-radius:16px;
+ text-align:center;
+ padding:13px 4px;
 }
 
 .stat-icon{
-    font-size:25px;
+ font-size:23px;
 }
 
 .stat-value{
-    font-size:22px;
-    font-weight:bold;
-    margin-top:4px;
+ font-size:21px;
+ font-weight:bold;
+ margin-top:3px;
 }
 
 .stat-label{
-    color:#8e98b8;
-    font-size:12px;
-    margin-top:3px;
-}
-
-
-/* SECTION TITLE */
-
-.section-title{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:15px;
+ color:var(--muted);
+ font-size:11px;
 }
 
 .section-title h2{
-    margin:0;
-    font-size:25px;
+ margin:0;
+ font-size:24px;
 }
 
 .section-title span{
-    color:#8993b4;
-    font-size:13px;
+ color:var(--muted);
+ font-size:12px;
 }
 
-
-/* GAME GRID */
-
 .game-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:13px;
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:12px;
 }
 
 .game-card{
-    position:relative;
-    overflow:hidden;
-    padding:22px 12px;
-    min-height:145px;
-    border-radius:21px;
-    text-align:center;
-    background:
-    linear-gradient(145deg,#171f3d,#0d1328);
-    border:1px solid #30395e;
-    cursor:pointer;
-    transition:.22s;
-}
-
-.game-card:before{
-    content:"";
-    position:absolute;
-    width:100px;
-    height:100px;
-    border-radius:50%;
-    background:rgba(120,105,255,.12);
-    top:-45px;
-    right:-35px;
+ padding:20px 10px;
+ min-height:135px;
+ border-radius:19px;
+ text-align:center;
+ background:var(--card2);
+ border:1px solid var(--border);
+ cursor:pointer;
+ transition:.2s;
 }
 
 .game-card:hover{
-    transform:translateY(-4px);
-    border-color:#7065e8;
+ transform:translateY(-3px);
+ border-color:#7568ff;
 }
 
 .game-icon{
-    position:relative;
-    font-size:48px;
-    margin-bottom:10px;
+ font-size:44px;
 }
 
 .game-name{
-    position:relative;
-    font-size:17px;
-    font-weight:bold;
+ font-weight:bold;
+ margin-top:8px;
 }
 
 .game-cost{
-    position:relative;
-    color:#929cbd;
-    font-size:13px;
-    margin-top:6px;
+ color:var(--muted);
+ font-size:12px;
+ margin-top:5px;
 }
 
-
-/* FEATURED */
-
 .featured{
-    padding:22px;
-    border-radius:23px;
-    background:
-    linear-gradient(135deg,#282064,#151b3a);
-    border:1px solid rgba(145,130,255,.3);
+ padding:20px;
+ border-radius:21px;
+ background:linear-gradient(135deg,#282064,#151b3a);
+ border:1px solid #51498b;
 }
 
 .featured-icon{
-    font-size:55px;
+ font-size:50px;
 }
 
 .featured h2{
-    margin:7px 0;
+ margin:5px 0;
 }
 
 .featured p{
-    color:#aeb7d6;
-    line-height:1.5;
+ color:#b7bfd8;
+ line-height:1.45;
 }
 
+.result{
+ text-align:center;
+ font-size:65px;
+ margin:20px 0;
+}
 
-/* MOBILE */
+.small{
+ text-align:center;
+ color:var(--muted);
+ line-height:1.5;
+}
+
+.message{
+ text-align:center;
+ min-height:27px;
+ margin:13px 0;
+ color:#cbd0ff;
+}
+
+.back{
+ background:#303952;
+}
+
+.slot-row{
+ display:flex;
+ justify-content:center;
+ gap:10px;
+ margin:20px 0;
+}
+
+.slot-box{
+ width:31%;
+ height:105px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ border-radius:18px;
+ background:var(--card2);
+ border:1px solid var(--border);
+ font-size:48px;
+}
+
+.wheel{
+ width:205px;
+ height:205px;
+ border-radius:50%;
+ margin:22px auto;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-size:43px;
+ background:conic-gradient(
+  #ff4b4b 0 45deg,
+  #ffd43b 45deg 90deg,
+  #4dabf7 90deg 135deg,
+  #51cf66 135deg 180deg,
+  #ff922b 180deg 225deg,
+  #cc5de8 225deg 270deg,
+  #20c997 270deg 315deg,
+  #f06595 315deg 360deg
+ );
+ border:8px solid white;
+ transition:transform 2s ease-out;
+}
+
+.history{
+ background:var(--card2);
+ border-radius:15px;
+ max-height:250px;
+ overflow:auto;
+}
+
+.history div{
+ padding:9px;
+ border-bottom:1px solid var(--border);
+ font-size:13px;
+}
+
+.leader-row{
+ display:grid;
+ grid-template-columns:55px 1fr auto;
+ gap:8px;
+ align-items:center;
+ padding:11px;
+ border-bottom:1px solid var(--border);
+}
+
+.player-coins{
+ color:var(--gold);
+}
+
+.profile-grid{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:10px;
+}
+
+.profile-item{
+ background:var(--card2);
+ padding:14px;
+ border-radius:15px;
+}
+
+.profile-item b{
+ display:block;
+ font-size:20px;
+ margin-top:4px;
+}
+
+.switch{
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ padding:13px 0;
+ border-bottom:1px solid var(--border);
+}
+
+.switch button{
+ width:auto;
+ margin:0;
+ padding:9px 15px;
+}
+
+.notice{
+ font-size:12px;
+ color:var(--muted);
+ text-align:center;
+ margin-top:12px;
+}
 
 @media(max-width:500px){
+ .logo{
+  font-size:36px;
+ }
 
-    .container{
-        width:94%;
-    }
+ .card{
+  padding:18px;
+ }
 
-    .logo{
-        font-size:37px;
-    }
+ .coin-number{
+  font-size:44px;
+ }
 
-    .card{
-        padding:20px;
-        border-radius:22px;
-    }
+ .game-card{
+  min-height:128px;
+ }
 
-    .coin-number{
-        font-size:46px;
-    }
+ .game-icon{
+  font-size:40px;
+ }
 
-    .game-card{
-        min-height:135px;
-        padding:19px 8px;
-    }
-
-    .game-icon{
-        font-size:42px;
-    }
-
+ .profile-grid{
+  grid-template-columns:1fr;
+ }
 }
-
 </style>
 </head>
 
-<>
+<body>
 
 <div class="container">
 
-<div class="logo">
-🎮 Game Zone
-</div>
+<div class="logo">🎮 Game Zone</div>
 
 <div class="tagline">
-Play • Explore • Enjoy
+Virtual Demo • Play • Explore • Enjoy
 </div>
-
 
 <!-- LOGIN -->
-
 <div id="loginBox" class="card">
 
-<div class="title">
-🔐 Welcome Back
-</div>
+<h2 class="title">🔐 Welcome Back</h2>
 
 <input
-id="loginUser"
-placeholder="Username"
+ id="loginUser"
+ placeholder="Username"
+ autocomplete="username"
 >
 
 <input
-id="loginPass"
-type="password"
-placeholder="Password"
+ id="loginPass"
+ type="password"
+ placeholder="Password"
+ autocomplete="current-password"
 >
 
 <button onclick="login()">
 🚀 Login
 </button>
 
-<div
-class="link"
-onclick="showSignup()"
->
+<div class="link" onclick="showSignup()">
 Don't have an account? Signup
+</div>
+
+<div class="notice">
+Demo accounts are stored only in this browser.
 </div>
 
 </div>
 
 
 <!-- SIGNUP -->
+<div id="signupBox" class="card hidden">
 
-<div
-id="signupBox"
-class="card hidden"
->
-
-<div class="title">
+<h2 class="title">
 📝 Create Account
-</div>
+</h2>
 
 <input
-id="signupUser"
-placeholder="Username"
+ id="signupUser"
+ placeholder="Username"
 >
 
 <input
-id="signupPass"
-type="password"
-placeholder="Password"
+ id="signupPass"
+ type="password"
+ placeholder="Password"
 >
 
 <input
-id="signupPass2"
-type="password"
-placeholder="Confirm Password"
+ id="signupPass2"
+ type="password"
+ placeholder="Confirm Password"
 >
 
 <button onclick="signup()">
 ✨ Create Account
 </button>
 
-<div
-class="link"
-onclick="showLogin()"
->
+<div class="link" onclick="showLogin()">
 Already have an account? Login
 </div>
 
 </div>
 
 
-<!-- HOME -->
-
-<div
-id="home"
-class="hidden"
->
-
-
-<!-- USER -->
+<!-- HOME START -->
+<div id="home" class="hidden">
 
 <div class="card">
 
@@ -448,23 +511,19 @@ Welcome back 👋
 </div>
 
 <div
-id="usernameDisplay"
-class="username"
->
-Player
+ id="usernameDisplay"
+ class="username">
 </div>
 
 </div>
 
 <button
-class="logout"
-onclick="logout()"
->
+ class="logout"
+ onclick="logout()">
 Logout
 </button>
 
 </div>
-
 
 <div class="coin-panel">
 
@@ -473,74 +532,31 @@ Logout
 </div>
 
 <div
-id="coins"
-class="coin-number"
->
+ id="coins"
+ class="coin-number">
 1450
 </div>
 
 </div>
 
-
 <div class="stats">
 
 <div class="stat">
-
-<div class="stat-icon">
-🎮
+<div class="stat-icon">🎮</div>
+<div id="gamesPlayed" class="stat-value">0</div>
+<div class="stat-label">Games</div>
 </div>
-
-<div
-id="gamesPlayed"
-class="stat-value"
->
-0
-</div>
-
-<div class="stat-label">
-Games
-</div>
-
-</div>
-
 
 <div class="stat">
-
-<div class="stat-icon">
-🏆
+<div class="stat-icon">🏆</div>
+<div id="wins" class="stat-value">0</div>
+<div class="stat-label">Wins</div>
 </div>
-
-<div
-id="wins"
-class="stat-value"
->
-0
-</div>
-
-<div class="stat-label">
-Wins
-</div>
-
-</div>
-
 
 <div class="stat">
-
-<div class="stat-icon">
-⭐
-</div>
-
-<div
-id="level"
-class="stat-value"
->
-1
-</div>
-
-<div class="stat-label">
-Level
-</div>
-
+<div class="stat-icon">⭐</div>
+<div id="level" class="stat-value">1</div>
+<div class="stat-label">Level</div>
 </div>
 
 </div>
@@ -549,7 +565,6 @@ Level
 
 
 <!-- FEATURED -->
-
 <div class="card">
 
 <div class="featured">
@@ -563,13 +578,10 @@ Lucky Slots
 </h2>
 
 <p>
-Try the virtual demo slots and collect
-virtual coins.
+Try the virtual demo slots and collect virtual coins.
 </p>
 
-<button
-onclick="openGame('slots')"
->
+<button onclick="openGame('slots')">
 🎮 Play Now
 </button>
 
@@ -579,7 +591,6 @@ onclick="openGame('slots')"
 
 
 <!-- GAMES -->
-
 <div class="card">
 
 <div class="section-title">
@@ -594,14 +605,11 @@ Virtual Demo
 
 </div>
 
-
 <div class="game-grid">
 
-
 <div
-class="game-card"
-onclick="openGame('slots')"
->
+ class="game-card"
+ onclick="openGame('slots')">
 
 <div class="game-icon">
 🎰
@@ -619,9 +627,8 @@ Lucky Slots
 
 
 <div
-class="game-card"
-onclick="openGame('dice')"
->
+ class="game-card"
+ onclick="openGame('dice')">
 
 <div class="game-icon">
 🎲
@@ -639,9 +646,8 @@ Dice
 
 
 <div
-class="game-card"
-onclick="openGame('card')"
->
+ class="game-card"
+ onclick="openGame('card')">
 
 <div class="game-icon">
 🃏
@@ -659,9 +665,8 @@ Card Demo
 
 
 <div
-class="game-card"
-onclick="openGame('number')"
->
+ class="game-card"
+ onclick="openGame('number')">
 
 <div class="game-icon">
 🎯
@@ -679,9 +684,8 @@ Lucky Number
 
 
 <div
-class="game-card"
-onclick="openGame('wheel')"
->
+ class="game-card"
+ onclick="openGame('wheel')">
 
 <div class="game-icon">
 🎡
@@ -699,9 +703,8 @@ Spin Wheel
 
 
 <div
-class="game-card"
-onclick="openGame('roulette')"
->
+ class="game-card"
+ onclick="openGame('roulette')">
 
 <div class="game-icon">
 🔴
@@ -717,6 +720,21 @@ Roulette Demo
 
 </div>
 
+
+<div
+ class="game-card"
+ onclick="openGame('blackjack')">
+
+<div class="game-icon">
+♠️
+</div>
+
+<div class="game-name">
+Blackjack Demo
+</div>
+
+<div class="game-cost">
+20 Coins
 </div>
 
 </div>
@@ -724,25 +742,188 @@ Roulette Demo
 </div>
 
 </div>
-<!-- GAME SCREENS -->
+<!-- PROFILE -->
+<div class="card">
+
+<div class="section-title">
+
+<h2>
+👤 Profile
+</h2>
+
+<span>
+Dashboard
+</span>
+
+</div>
+
+<div class="profile-grid">
+
+<div class="profile-item">
+Username
+<b id="profileUser">-</b>
+</div>
+
+<div class="profile-item">
+Level
+<b id="profileLevel">1</b>
+</div>
+
+<div class="profile-item">
+Games Played
+<b id="profileGames">0</b>
+</div>
+
+<div class="profile-item">
+Wins
+<b id="profileWins">0</b>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- LEADERBOARD -->
+<div class="card">
+
+<div class="section-title">
+
+<h2>
+🏆 Leaderboard
+</h2>
+
+<span>
+Top 10
+</span>
+
+</div>
+
+<div id="leaderboard">
+No players yet.
+</div>
+
+</div>
+
+
+<!-- HISTORY -->
+<div class="card">
+
+<div class="section-title">
+
+<h2>
+📜 History
+</h2>
+
+<span>
+Recent activity
+</span>
+
+</div>
+
+<div id="history" class="history">
+No history yet.
+</div>
+
+</div>
+
+
+<!-- SETTINGS -->
+<div class="card">
+
+<div class="section-title">
+
+<h2>
+⚙️ Settings
+</h2>
+
+<span>
+Preferences
+</span>
+
+</div>
+
+
+<div class="switch">
+
+<span>
+🌙 Dark Mode
+</span>
+
+<button
+ onclick="toggleTheme()"
+ id="themeBtn">
+Light
+</button>
+
+</div>
+
+
+<div class="switch">
+
+<span>
+🔊 Sound Effects
+</span>
+
+<button
+ onclick="toggleSound()"
+ id="soundBtn">
+On
+</button>
+
+</div>
+
+
+<button onclick="resetDemo()">
+♻️ Reset My Demo Data
+</button>
+
+</div>
+
+</div>
+<!-- HOME END -->
+
+
+<!-- GAME AREA START -->
 
 <div id="gameArea" class="hidden">
 
 
 <!-- SLOTS -->
 
-<div id="slotsGame" class="card game-screen">
+<div id="slotsGame" class="card hidden">
 
 <div class="section-title">
-<h2>🎰 Lucky Slots</h2>
-<span>Demo</span>
+
+<h2>
+🎰 Lucky Slots
+</h2>
+
+<span>
+Demo
+</span>
+
 </div>
 
-<div class="game-icons">
+<div class="slot-row">
 
-<div class="slot-box" id="slot1">🍊</div>
-<div class="slot-box" id="slot2">7️⃣</div>
-<div class="slot-box" id="slot3">⭐</div>
+<div
+ class="slot-box"
+ id="slot1">
+🍊
+</div>
+
+<div
+ class="slot-box"
+ id="slot2">
+7️⃣
+</div>
+
+<div
+ class="slot-box"
+ id="slot3">
+⭐
+</div>
 
 </div>
 
@@ -750,9 +931,14 @@ Roulette Demo
 🎰 PLAY — 50 COINS
 </button>
 
-<div id="slotMessage" class="message"></div>
+<div
+ id="slotMessage"
+ class="message">
+</div>
 
-<button class="back" onclick="closeGame()">
+<button
+ class="back"
+ onclick="closeGame()">
 ← Back
 </button>
 
@@ -761,85 +947,114 @@ Roulette Demo
 
 <!-- DICE -->
 
-<div id="diceGame" class="card game-screen hidden">
+<div id="diceGame" class="card hidden">
 
 <div class="section-title">
-<h2>🎲 Dice</h2>
-<span>Demo</span>
+
+<h2>
+🎲 Dice
+</h2>
+
+<span>
+Demo
+</span>
+
 </div>
 
-<div id="diceResult" class="result">
+<div
+ id="diceResult"
+ class="result">
 🎲
 </div>
 
 <p class="small">
-Guess a number between 1 and 6.
+Guess a number from 1 to 6.
 </p>
 
 <input
-id="diceGuess"
-type="number"
-min="1"
-max="6"
-placeholder="Enter 1 - 6"
+ id="diceGuess"
+ type="number"
+ min="1"
+ max="6"
+ placeholder="Enter 1 - 6"
 >
 
 <button onclick="playDice()">
 🎲 PLAY — 20 COINS
 </button>
 
-<div id="diceMessage" class="message"></div>
+<div
+ id="diceMessage"
+ class="message">
+</div>
 
 <button
-class="back"
-onclick="closeGame()"
->
+ class="back"
+ onclick="closeGame()">
 ← Back
 </button>
 
 </div>
 
 
-<!-- CARD -->
+<!-- CARD GAME -->
 
-<div id="cardGame" class="card game-screen hidden">
+<div id="cardGame" class="card hidden">
 
 <div class="section-title">
-<h2>🃏 Card Demo</h2>
-<span>Demo</span>
+
+<h2>
+🃏 Card Demo
+</h2>
+
+<span>
+Demo
+</span>
+
 </div>
 
-<div id="playerCard" class="result">
+<div
+ id="playerCard"
+ class="result">
 🃏
 </div>
 
 <p class="small">
-Draw a random card.
+Draw a random demo card.
 </p>
 
 <button onclick="playCard()">
 🃏 DRAW CARD — 20 COINS
 </button>
 
-<div id="cardMessage" class="message"></div>
+<div
+ id="cardMessage"
+ class="message">
+</div>
 
 <button
-class="back"
-onclick="closeGame()"
->
+ class="back"
+ onclick="closeGame()">
 ← Back
 </button>
 
 </div>
 
 
-<!-- NUMBER -->
+<!-- LUCKY NUMBER -->
 
-<div id="numberGame" class="card game-screen hidden">
+<div id="numberGame" class="card hidden">
 
 <div class="section-title">
-<h2>🎯 Lucky Number</h2>
-<span>Demo</span>
+
+<h2>
+🎯 Lucky Number
+</h2>
+
+<span>
+Demo
+</span>
+
 </div>
 
 <div class="result">
@@ -847,43 +1062,54 @@ onclick="closeGame()"
 </div>
 
 <p class="small">
-Guess a number between 1 and 10.
+Guess a number from 1 to 10.
 </p>
 
 <input
-id="numberGuess"
-type="number"
-min="1"
-max="10"
-placeholder="Enter 1 - 10"
+ id="numberGuess"
+ type="number"
+ min="1"
+ max="10"
+ placeholder="Enter 1 - 10"
 >
 
 <button onclick="playNumber()">
 🎯 PLAY — 20 COINS
 </button>
 
-<div id="numberMessage" class="message"></div>
+<div
+ id="numberMessage"
+ class="message">
+</div>
 
 <button
-class="back"
-onclick="closeGame()"
->
+ class="back"
+ onclick="closeGame()">
 ← Back
 </button>
 
 </div>
 
 
-<!-- WHEEL -->
+<!-- SPIN WHEEL -->
 
-<div id="wheelGame" class="card game-screen hidden">
+<div id="wheelGame" class="card hidden">
 
 <div class="section-title">
-<h2>🎡 Spin Wheel</h2>
-<span>Demo</span>
+
+<h2>
+🎡 Spin Wheel
+</h2>
+
+<span>
+Demo
+</span>
+
 </div>
 
-<div id="wheel" class="wheel">
+<div
+ id="wheel"
+ class="wheel">
 🎡
 </div>
 
@@ -891,12 +1117,14 @@ onclick="closeGame()"
 🎡 SPIN — 20 COINS
 </button>
 
-<div id="wheelMessage" class="message"></div>
+<div
+ id="wheelMessage"
+ class="message">
+</div>
 
 <button
-class="back"
-onclick="closeGame()"
->
+ class="back"
+ onclick="closeGame()">
 ← Back
 </button>
 
@@ -905,11 +1133,18 @@ onclick="closeGame()"
 
 <!-- ROULETTE -->
 
-<div id="rouletteGame" class="card game-screen hidden">
+<div id="rouletteGame" class="card hidden">
 
 <div class="section-title">
-<h2>🔴 Roulette Demo</h2>
-<span>Demo</span>
+
+<h2>
+🔴 Roulette Demo
+</h2>
+
+<span>
+Demo
+</span>
+
 </div>
 
 <div class="result">
@@ -920,33 +1155,70 @@ onclick="closeGame()"
 Choose a color.
 </p>
 
-<button
-onclick="playRoulette('red')"
->
+<button onclick="playRoulette('red')">
 🔴 RED
 </button>
 
-<button
-onclick="playRoulette('black')"
->
+<button onclick="playRoulette('black')">
 ⚫ BLACK
 </button>
 
-<button
-onclick="playRoulette('green')"
->
+<button onclick="playRoulette('green')">
 🟢 GREEN
 </button>
 
 <div
-id="rouletteMessage"
-class="message"
-></div>
+ id="rouletteMessage"
+ class="message">
+</div>
 
 <button
-class="back"
-onclick="closeGame()"
->
+ class="back"
+ onclick="closeGame()">
+← Back
+</button>
+
+</div>
+
+
+<!-- BLACKJACK -->
+
+<div id="blackjackGame" class="card hidden">
+
+<div class="section-title">
+
+<h2>
+♠️ Blackjack Demo
+</h2>
+
+<span>
+Demo
+</span>
+
+</div>
+
+<div
+ id="blackjackResult"
+ class="result">
+🃏
+</div>
+
+<p class="small">
+Try to beat the dealer in this simple demo.
+</p>
+
+<button onclick="playBlackjack()">
+♠️ PLAY — 20 COINS
+</button>
+
+<div
+ id="blackjackMessage"
+ class="message">
+</div>
+
+<button
+ class="back"
+ onclick="closeGame()">
 ← Back
 </button>
 
@@ -954,904 +1226,1572 @@ onclick="closeGame()"
 
 
 </div>
+<!-- GAME AREA END -->
+  <script>
+
+"use strict";
 
 
-<style>
-
-/* GAME UI */
-
-.game-icons{
-    display:flex;
-    justify-content:center;
-    gap:12px;
-    margin:25px 0;
-}
-
-.slot-box{
-    width:31%;
-    min-height:100px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:20px;
-    background:#0b1125;
-    border:1px solid #333d63;
-    font-size:50px;
-}
-
-.message{
-    min-height:30px;
-    margin:15px 0;
-    text-align:center;
-    font-size:18px;
-    color:#c8ceff;
-}
-
-.result{
-    text-align:center;
-    font-size:70px;
-    margin:25px 0;
-}
-
-.small{
-    text-align:center;
-    color:#929bb8;
-}
-
-.back{
-    background:#303952;
-}
-
-.wheel{
-    width:210px;
-    height:210px;
-    border-radius:50%;
-    margin:25px auto;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:45px;
-
-    background:
-    conic-gradient(
-        #ff4b4b 0deg 45deg,
-        #ffd43b 45deg 90deg,
-        #4dabf7 90deg 135deg,
-        #51cf66 135deg 180deg,
-        #ff922b 180deg 225deg,
-        #cc5de8 225deg 270deg,
-        #20c997 270deg 315deg,
-        #f06595 315deg 360deg
-    );
-
-    border:8px solid white;
-
-    transition:
-    transform 2s ease-out;
-}
-
-</style>
-
-
-<script>
+/* =========================
+   BASIC VARIABLES
+========================= */
 
 let currentUser =
-localStorage.getItem("currentUser");
+ localStorage.getItem("currentUser") || "";
 
 let coins = 1450;
 
 let wheelRotation = 0;
 
+let soundOn =
+ localStorage.getItem("soundOn") !== "false";
 
-/* LOAD COINS */
 
-if(currentUser){
+/* =========================
+   STORAGE HELPERS
+========================= */
 
-    coins =
-    Number(
-        localStorage.getItem(
-            "coins_"+currentUser
-        )
-    ) || 1450;
+function key(type){
+
+ return type + "_" + currentUser;
 
 }
 
 
-/* LOGIN / SIGNUP */
+function getNum(type,def=0){
+
+ return Number(
+  localStorage.getItem(key(type))
+ ) || def;
+
+}
+
+
+function setNum(type,val){
+
+ localStorage.setItem(
+  key(type),
+  String(val)
+ );
+
+}
+
+
+function getHistory(){
+
+ try{
+
+  return JSON.parse(
+   localStorage.getItem(key("history"))
+  ) || [];
+
+ }catch(e){
+
+  return [];
+
+ }
+
+}
+
+
+/* =========================
+   SOUND
+========================= */
+
+function beep(
+ freq=500,
+ duration=.08
+){
+
+ if(!soundOn)return;
+
+ try{
+
+  const AudioCtx =
+   window.AudioContext ||
+   window.webkitAudioContext;
+
+  if(!AudioCtx)return;
+
+  const audio =
+   new AudioCtx();
+
+  const oscillator =
+   audio.createOscillator();
+
+  const gain =
+   audio.createGain();
+
+  oscillator.frequency.value =
+   freq;
+
+  oscillator.connect(gain);
+
+  gain.connect(audio.destination);
+
+  gain.gain.value=.04;
+
+  oscillator.start();
+
+  oscillator.stop(
+   audio.currentTime + duration
+  );
+
+ }catch(e){}
+
+}
+
+
+/* =========================
+   LOGIN / SIGNUP SCREEN
+========================= */
 
 function showSignup(){
 
-    document
-    .getElementById("loginBox")
-    .classList.add("hidden");
+ document
+ .getElementById("loginBox")
+ .classList.add("hidden");
 
-    document
-    .getElementById("signupBox")
-    .classList.remove("hidden");
+ document
+ .getElementById("signupBox")
+ .classList.remove("hidden");
 
 }
 
 
 function showLogin(){
 
-    document
-    .getElementById("signupBox")
-    .classList.add("hidden");
+ document
+ .getElementById("signupBox")
+ .classList.add("hidden");
 
-    document
-    .getElementById("loginBox")
-    .classList.remove("hidden");
+ document
+ .getElementById("loginBox")
+ .classList.remove("hidden");
 
 }
 
+
+/* =========================
+   SIGNUP
+========================= */
 
 function signup(){
 
-    let user =
-    document
-    .getElementById("signupUser")
-    .value
-    .trim();
+ const user =
+  document
+  .getElementById("signupUser")
+  .value
+  .trim();
 
-    let pass =
-    document
-    .getElementById("signupPass")
-    .value;
+ const pass =
+  document
+  .getElementById("signupPass")
+  .value;
 
-    let pass2 =
-    document
-    .getElementById("signupPass2")
-    .value;
-
-
-    if(!user || !pass){
-
-        alert(
-            "Please enter username and password."
-        );
-
-        return;
-    }
+ const pass2 =
+  document
+  .getElementById("signupPass2")
+  .value;
 
 
-    if(pass !== pass2){
+ if(
+  !/^[a-zA-Z0-9_]{3,20}$/.test(user)
+ ){
 
-        alert(
-            "Passwords do not match."
-        );
+  alert(
+   "Username 3-20 characters: letters, numbers or _."
+  );
 
-        return;
-    }
+  return;
 
-
-    if(
-        localStorage.getItem(
-            "user_"+user
-        )
-    ){
-
-        alert(
-            "Username already exists."
-        );
-
-        return;
-    }
+ }
 
 
-    localStorage.setItem(
-        "user_"+user,
-        pass
-    );
+ if(pass.length < 4){
+
+  alert(
+   "Password must be at least 4 characters."
+  );
+
+  return;
+
+ }
 
 
-    localStorage.setItem(
-        "coins_"+user,
-        1450
-    );
+ if(pass !== pass2){
+
+  alert(
+   "Passwords do not match."
+  );
+
+  return;
+
+ }
 
 
-    localStorage.setItem(
-        "games_"+user,
-        0
-    );
+ if(
+  localStorage.getItem(
+   "user_" + user
+  )
+ ){
+
+  alert(
+   "Username already exists."
+  );
+
+  return;
+
+ }
 
 
-    localStorage.setItem(
-        "wins_"+user,
-        0
-    );
+ localStorage.setItem(
+  "user_" + user,
+  pass
+ );
 
 
-    document.getElementById(
-        "loginUser"
-    ).value = user;
+ localStorage.setItem(
+  "coins_" + user,
+  "1450"
+ );
 
 
-    alert(
-        "Account created successfully!"
-    );
+ localStorage.setItem(
+  "games_" + user,
+  "0"
+ );
 
 
-    showLogin();
+ localStorage.setItem(
+  "wins_" + user,
+  "0"
+ );
+
+
+ localStorage.setItem(
+  "history_" + user,
+
+  JSON.stringify([
+
+   new Date().toLocaleTimeString() +
+   " — 🎁 Account created: +1450 coins"
+
+  ])
+
+ );
+
+
+ document
+ .getElementById("loginUser")
+ .value=user;
+
+
+ document
+ .getElementById("signupPass")
+ .value="";
+
+
+ document
+ .getElementById("signupPass2")
+ .value="";
+
+
+ alert(
+  "Account created successfully!"
+ );
+
+
+ showLogin();
 
 }
 
+
+/* =========================
+   LOGIN
+========================= */
 
 function login(){
 
-    let user =
-    document
-    .getElementById("loginUser")
-    .value
-    .trim();
+ const user =
+  document
+  .getElementById("loginUser")
+  .value
+  .trim();
 
-    let pass =
-    document
-    .getElementById("loginPass")
-    .value;
-
-
-    let saved =
-    localStorage.getItem(
-        "user_"+user
-    );
+ const pass =
+  document
+  .getElementById("loginPass")
+  .value;
 
 
-    if(!saved){
-
-        alert(
-            "Account not found. Please signup first."
-        );
-
-        return;
-    }
+ const saved =
+  localStorage.getItem(
+   "user_" + user
+  );
 
 
-    if(saved !== pass){
+ if(!saved){
 
-        alert(
-            "Wrong password."
-        );
+  alert(
+   "Account not found. Please signup first."
+  );
 
-        return;
-    }
+  return;
 
-
-    currentUser = user;
+ }
 
 
-    localStorage.setItem(
-        "currentUser",
-        user
-    );
+ if(saved !== pass){
+
+  alert(
+   "Wrong password."
+  );
+
+  return;
+
+ }
 
 
-    coins =
-    Number(
-        localStorage.getItem(
-            "coins_"+user
-        )
-    ) || 1450;
+ currentUser=user;
 
 
-    showHome();
+ localStorage.setItem(
+  "currentUser",
+  user
+ );
+
+
+ coins =
+  getNum("coins",1450);
+
+
+ showHome();
+
+
+ beep(700,.12);
 
 }
 
 
-/* HOME */
+/* =========================
+   SHOW HOME
+========================= */
 
 function showHome(){
 
-    document
-    .getElementById("loginBox")
-    .classList.add("hidden");
-
-    document
-    .getElementById("signupBox")
-    .classList.add("hidden");
-
-    document
-    .getElementById("home")
-    .classList.remove("hidden");
-
-    document
-    .getElementById("gameArea")
-    .classList.add("hidden");
+ document
+ .getElementById("loginBox")
+ .classList.add("hidden");
 
 
-    document
-    .getElementById("usernameDisplay")
-    .textContent =
-    currentUser;
+ document
+ .getElementById("signupBox")
+ .classList.add("hidden");
 
 
-    updateCoins();
+ document
+ .getElementById("home")
+ .classList.remove("hidden");
 
-    updateStats();
+
+ document
+ .getElementById("gameArea")
+ .classList.add("hidden");
+
+
+ document
+ .getElementById("usernameDisplay")
+ .textContent=currentUser;
+
+
+ updateAll();
 
 }
 
+
+/* =========================
+   LOGOUT
+========================= */
 
 function logout(){
 
-    localStorage.removeItem(
-        "currentUser"
-    );
+ localStorage.removeItem(
+  "currentUser"
+ );
 
-    location.reload();
+ location.reload();
 
 }
 
 
-/* COINS */
+/* =========================
+   COINS
+========================= */
 
 function updateCoins(){
 
-    let box =
-    document.getElementById("coins");
+ coins =
+  Math.max(
+   0,
+   Math.floor(coins)
+  );
 
 
-    if(box){
-
-        box.textContent =
-        coins;
-
-    }
+ setNum(
+  "coins",
+  coins
+ );
 
 
-    if(currentUser){
-
-        localStorage.setItem(
-            "coins_"+currentUser,
-            coins
-        );
-
-    }
-
-}
-
-
-function spend(amount){
-
-    if(coins < amount){
-
-        alert(
-            "Not enough virtual coins!"
-        );
-
-        return false;
-    }
-
-
-    coins -= amount;
-
-    updateCoins();
-
-    return true;
+ document
+ .getElementById("coins")
+ .textContent=coins;
 
 }
 
 
 function addCoins(amount){
 
-    coins += amount;
+ coins += amount;
 
-    updateCoins();
+ addHistory(
+  "🎁 Won +" +
+  amount +
+  " coins"
+ );
+
+ updateCoins();
+
+ beep(800,.1);
 
 }
 
 
-/* STATS */
+function spend(amount){
+
+ if(coins < amount){
+
+  alert(
+   "Not enough virtual coins!"
+  );
+
+  return false;
+
+ }
+
+
+ coins -= amount;
+
+
+ addHistory(
+  "💸 Used " +
+  amount +
+  " coins"
+ );
+
+
+ updateCoins();
+
+ beep(250,.06);
+
+ return true;
+
+}
+
+
+/* =========================
+   GAME STATS
+========================= */
 
 function countGame(){
 
-    if(!currentUser)return;
-
-    let games =
-    Number(
-        localStorage.getItem(
-            "games_"+currentUser
-        )
-    ) || 0;
-
-
-    games++;
-
-
-    localStorage.setItem(
-        "games_"+currentUser,
-        games
-    );
-
-
-    updateStats();
+ setNum(
+  "games",
+  getNum("games") + 1
+ );
 
 }
 
 
 function countWin(){
 
-    if(!currentUser)return;
+ setNum(
+  "wins",
+  getNum("wins") + 1
+ );
 
-    let wins =
-    Number(
-        localStorage.getItem(
-            "wins_"+currentUser
-        )
-    ) || 0;
-
-
-    wins++;
-
-
-    localStorage.setItem(
-        "wins_"+currentUser,
-        wins
-    );
-
-
-    updateStats();
 
 }
 
+
+/* =========================
+   HISTORY
+========================= */
+
+function addHistory(text){
+
+ if(!currentUser)return;
+
+
+ let h =
+  getHistory();
+
+
+ h.unshift(
+  new Date().toLocaleTimeString() +
+  " — " +
+  text
+ );
+
+
+ h =
+  h.slice(0,40);
+
+
+ localStorage.setItem(
+  key("history"),
+  JSON.stringify(h)
+ );
+
+
+ updateHistory();
+
+}
+
+
+function updateHistory(){
+
+ const h =
+  getHistory();
+
+
+ const box =
+  document
+  .getElementById("history");
+
+
+ if(!h.length){
+
+  box.innerHTML =
+   "No history yet.";
+
+  return;
+
+ }
+
+
+ box.innerHTML =
+  h.map(
+   x =>
+    "<div>" +
+    escapeHtml(x) +
+    "</div>"
+  ).join("");
+
+}
+
+
+/* =========================
+   HTML SECURITY
+========================= */
+
+function escapeHtml(s){
+
+ return String(s)
+ .replace(
+  /[&<>"']/g,
+  function(m){
+
+   return {
+
+    "&":"&amp;",
+    "<":"&lt;",
+    ">":"&gt;",
+    '"':"&quot;",
+    "'":"&#039;"
+
+   }[m];
+
+  }
+ );
+
+}
+
+
+/* =========================
+   STATS UPDATE
+========================= */
 
 function updateStats(){
 
-    if(!currentUser)return;
+ const games =
+  getNum("games");
 
 
-    let games =
-    Number(
-        localStorage.getItem(
-            "games_"+currentUser
-        )
-    ) || 0;
+ const wins =
+  getNum("wins");
 
 
-    let wins =
-    Number(
-        localStorage.getItem(
-            "wins_"+currentUser
-        )
-    ) || 0;
+ const level =
+  Math.floor(
+   games / 10
+  ) + 1;
 
 
-    let level =
-    Math.floor(games / 10) + 1;
+ document
+ .getElementById("gamesPlayed")
+ .textContent=games;
 
 
-    document.getElementById(
-        "gamesPlayed"
-    ).textContent =
-    games;
+ document
+ .getElementById("wins")
+ .textContent=wins;
 
 
-    document.getElementById(
-        "wins"
-    ).textContent =
-    wins;
+ document
+ .getElementById("level")
+ .textContent=level;
 
 
-    document.getElementById(
-        "level"
-    ).textContent =
-    level;
+ document
+ .getElementById("profileUser")
+ .textContent=currentUser;
+
+
+ document
+ .getElementById("profileGames")
+ .textContent=games;
+
+
+ document
+ .getElementById("profileWins")
+ .textContent=wins;
+
+
+ document
+ .getElementById("profileLevel")
+ .textContent=level;
 
 }
 
 
-/* OPEN GAME */
+/* =========================
+   LEADERBOARD
+========================= */
+
+function updateLeaderboard(){
+
+ const rows=[];
+
+
+ for(
+  let i=0;
+  i<localStorage.length;
+  i++
+ ){
+
+  const k =
+   localStorage.key(i);
+
+
+  if(
+   k &&
+   k.startsWith("coins_")
+  ){
+
+   rows.push({
+
+    u:k.slice(6),
+
+    c:
+     Number(
+      localStorage.getItem(k)
+     ) || 0
+
+   });
+
+  }
+
+ }
+
+
+ rows.sort(
+  (a,b)=>b.c-a.c
+ );
+
+
+ const box =
+  document
+  .getElementById("leaderboard");
+
+
+ if(!rows.length){
+
+  box.innerHTML =
+   "No players yet.";
+
+  return;
+
+ }
+
+
+ box.innerHTML =
+  rows
+  .slice(0,10)
+  .map(
+
+   (x,i)=>{
+
+    const medal =
+     i===0
+      ?"🥇"
+      :i===1
+       ?"🥈"
+       :i===2
+        ?"🥉"
+        :"🏅";
+
+
+    return `
+
+     <div class="leader-row">
+
+      <div>
+       ${medal} ${i+1}
+      </div>
+
+      <div>
+       ${escapeHtml(x.u)}
+      </div>
+
+      <div class="player-coins">
+       🪙 ${x.c}
+      </div>
+
+     </div>
+
+    `;
+
+   }
+
+  )
+  .join("");
+
+}
+
+
+/* =========================
+   UPDATE EVERYTHING
+========================= */
+
+function updateAll(){
+
+ updateCoins();
+
+ updateStats();
+
+ updateHistory();
+
+ updateLeaderboard();
+
+}
+
+
+/* =========================
+   OPEN GAME
+========================= */
 
 function openGame(game){
 
-    document
-    .getElementById("home")
-    .classList.add("hidden");
+ document
+ .getElementById("home")
+ .classList.add("hidden");
 
 
-    document
-    .getElementById("gameArea")
-    .classList.remove("hidden");
+ document
+ .getElementById("gameArea")
+ .classList.remove("hidden");
 
 
-    let screens = [
-        "slotsGame",
-        "diceGame",
-        "cardGame",
-        "numberGame",
-        "wheelGame",
-        "rouletteGame"
-    ];
+ const games=[
+
+  "slots",
+  "dice",
+  "card",
+  "number",
+  "wheel",
+  "roulette",
+  "blackjack"
+
+ ];
 
 
-    screens.forEach(function(id){
+ games.forEach(
 
-        document
-        .getElementById(id)
-        .classList.add("hidden");
+  g=>{
 
-    });
+   document
+   .getElementById(g+"Game")
+   .classList.add("hidden");
+
+  }
+
+ );
 
 
-    document
-    .getElementById(
-        game+"Game"
-    )
-    .classList.remove("hidden");
+ document
+ .getElementById(game+"Game")
+ .classList.remove("hidden");
 
 }
 
 
-/* CLOSE GAME */
+/* =========================
+   CLOSE GAME
+========================= */
 
 function closeGame(){
 
-    document
-    .getElementById("gameArea")
-    .classList.add("hidden");
+ document
+ .getElementById("gameArea")
+ .classList.add("hidden");
 
 
-    document
-    .getElementById("home")
-    .classList.remove("hidden");
+ document
+ .getElementById("home")
+ .classList.remove("hidden");
+
+
+ updateAll();
 
 }
-/* =========================
-   PART 3 — GAME FUNCTIONS
+    /* =========================
+   SLOTS
 ========================= */
-
-
-/* SLOTS */
 
 function playSlots(){
 
-    if(!spend(50)) return;
+ if(!spend(50)) return;
 
-    countGame();
+ countGame();
 
-    let symbols = [
-        "🍊","7️⃣","⭐","🍒","💎","🍋"
-    ];
+ const symbols=[
+  "🍊",
+  "7️⃣",
+  "⭐",
+  "🍒",
+  "💎",
+  "🍋"
+ ];
 
-    let a =
-    symbols[Math.floor(Math.random()*symbols.length)];
+ const a=
+  symbols[
+   Math.floor(
+    Math.random()*symbols.length
+   )
+  ];
 
-    let b =
-    symbols[Math.floor(Math.random()*symbols.length)];
+ const b=
+  symbols[
+   Math.floor(
+    Math.random()*symbols.length
+   )
+  ];
 
-    let c =
-    symbols[Math.floor(Math.random()*symbols.length)];
+ const c=
+  symbols[
+   Math.floor(
+    Math.random()*symbols.length
+   )
+  ];
+
+ document.getElementById("slot1")
+ .textContent=a;
+
+ document.getElementById("slot2")
+ .textContent=b;
+
+ document.getElementById("slot3")
+ .textContent=c;
+
+ const msg=
+  document.getElementById("slotMessage");
 
 
-    document.getElementById("slot1").textContent = a;
-    document.getElementById("slot2").textContent = b;
-    document.getElementById("slot3").textContent = c;
+ if(
+  a===b &&
+  b===c
+ ){
 
+  countWin();
 
-    let msg =
-    document.getElementById("slotMessage");
+  addCoins(300);
 
+  msg.textContent=
+   "🎉 JACKPOT! +300 virtual coins";
 
-    if(a === b && b === c){
+ }else if(
+  a===b ||
+  b===c ||
+  a===c
+ ){
 
-        addCoins(300);
-        countWin();
+  countWin();
 
-        msg.textContent =
-        "🎉 JACKPOT! +300 virtual coins";
+  addCoins(100);
 
-    }
+  msg.textContent=
+   "😃 Nice! +100 virtual coins";
 
-    else if(a === b || b === c || a === c){
+ }else{
 
-        addCoins(100);
-        countWin();
+  msg.textContent=
+   "🙂 No match. Try again!";
 
-        msg.textContent =
-        "😃 Nice! +100 virtual coins";
+ }
 
-    }
-
-    else{
-
-        msg.textContent =
-        "🙂 Try again!";
-
-    }
+ updateStats();
 
 }
 
 
-/* DICE */
+/* =========================
+   DICE
+========================= */
 
 function playDice(){
 
-    let guess =
-    Number(
-        document.getElementById("diceGuess").value
-    );
+ const guess=
+  Number(
+   document.getElementById("diceGuess").value
+  );
 
 
-    if(guess < 1 || guess > 6){
+ if(
+  guess<1 ||
+  guess>6 ||
+  !Number.isInteger(guess)
+ ){
 
-        alert("Enter a number from 1 to 6.");
+  alert(
+   "Enter a whole number from 1 to 6."
+  );
 
-        return;
-    }
+  return;
 
-
-    if(!spend(20)) return;
-
-    countGame();
-
-
-    let dice =
-    Math.floor(Math.random()*6)+1;
+ }
 
 
-    document.getElementById("diceResult")
-    .textContent =
-    "🎲 " + dice;
+ if(!spend(20)) return;
+
+ countGame();
 
 
-    if(guess === dice){
+ const dice=
+  Math.floor(
+   Math.random()*6
+  )+1;
 
-        addCoins(100);
-        countWin();
 
-        document.getElementById("diceMessage")
-        .textContent =
-        "🎉 Correct! +100 virtual coins";
+ document
+ .getElementById("diceResult")
+ .textContent=
+ "🎲 "+dice;
 
-    }
 
-    else{
+ const msg=
+  document
+  .getElementById("diceMessage");
 
-        document.getElementById("diceMessage")
-        .textContent =
-        "❌ Wrong! Number was " + dice;
 
-    }
+ if(guess===dice){
+
+  countWin();
+
+  addCoins(100);
+
+  msg.textContent=
+   "🎉 Correct! +100 virtual coins";
+
+ }else{
+
+  msg.textContent=
+   "❌ Wrong! Number was "+dice;
+
+ }
+
+
+ updateStats();
 
 }
 
 
-/* CARD */
+/* =========================
+   CARD
+========================= */
 
 function playCard(){
 
-    if(!spend(20)) return;
+ if(!spend(20)) return;
 
-    countGame();
-
-
-    let cards = [
-
-        "🂡","🂢","🂣","🂤",
-        "🂥","🂦","🂧","🂨",
-        "🂩","🂪","🂫","🂭","🂮"
-
-    ];
+ countGame();
 
 
-    let index =
-    Math.floor(Math.random()*cards.length);
+ const cards=[
+  "🂡",
+  "🂢",
+  "🂣",
+  "🂤",
+  "🂥",
+  "🂦",
+  "🂧",
+  "🂨",
+  "🂩",
+  "🂪",
+  "🂫",
+  "🂭",
+  "🂮"
+ ];
 
 
-    document.getElementById("playerCard")
-    .textContent =
-    cards[index];
+ const index=
+  Math.floor(
+   Math.random()*cards.length
+  );
 
 
-    if(index >= 10){
+ document
+ .getElementById("playerCard")
+ .textContent=
+ cards[index];
 
-        addCoins(80);
-        countWin();
 
-        document.getElementById("cardMessage")
-        .textContent =
-        "🎉 High Card! +80 virtual coins";
+ const msg=
+  document
+  .getElementById("cardMessage");
 
-    }
 
-    else{
+ if(index>=10){
 
-        document.getElementById("cardMessage")
-        .textContent =
-        "🙂 Card drawn!";
+  countWin();
 
-    }
+  addCoins(80);
+
+  msg.textContent=
+   "🎉 High Card! +80 virtual coins";
+
+ }else{
+
+  msg.textContent=
+   "🙂 Card drawn. Try again!";
+
+ }
+
+
+ updateStats();
 
 }
 
 
-/* LUCKY NUMBER */
+/* =========================
+   LUCKY NUMBER
+========================= */
 
 function playNumber(){
 
-    let guess =
-    Number(
-        document.getElementById("numberGuess").value
-    );
+ const guess=
+  Number(
+   document
+   .getElementById("numberGuess")
+   .value
+  );
 
 
-    if(guess < 1 || guess > 10){
+ if(
+  guess<1 ||
+  guess>10 ||
+  !Number.isInteger(guess)
+ ){
 
-        alert("Enter a number from 1 to 10.");
+  alert(
+   "Enter a whole number from 1 to 10."
+  );
 
-        return;
-    }
+  return;
 
-
-    if(!spend(20)) return;
-
-    countGame();
-
-
-    let lucky =
-    Math.floor(Math.random()*10)+1;
+ }
 
 
-    if(guess === lucky){
+ if(!spend(20)) return;
 
-        addCoins(150);
-        countWin();
+ countGame();
 
-        document.getElementById("numberMessage")
-        .textContent =
-        "🎯 PERFECT! Number was "
-        + lucky +
-        ". +150 virtual coins";
 
-    }
+ const lucky=
+  Math.floor(
+   Math.random()*10
+  )+1;
 
-    else{
 
-        document.getElementById("numberMessage")
-        .textContent =
-        "❌ Number was "
-        + lucky +
-        ". Try again!";
+ const msg=
+  document
+  .getElementById("numberMessage");
 
-    }
+
+ if(guess===lucky){
+
+  countWin();
+
+  addCoins(150);
+
+  msg.textContent=
+   "🎯 PERFECT! Number was "+
+   lucky+
+   ". +150 virtual coins";
+
+ }else{
+
+  msg.textContent=
+   "❌ Number was "+
+   lucky+
+   ". Try again!";
+
+ }
+
+
+ updateStats();
 
 }
 
 
-/* SPIN WHEEL */
+/* =========================
+   SPIN WHEEL
+========================= */
 
 function spinWheel(){
 
-    if(!spend(20)) return;
+ if(!spend(20)) return;
 
-    countGame();
-
-
-    let prizes = [
-        0,
-        20,
-        50,
-        100,
-        0,
-        30,
-        150,
-        50
-    ];
+ countGame();
 
 
-    let index =
-    Math.floor(Math.random()*prizes.length);
+ const prizes=[
+  0,
+  20,
+  50,
+  100,
+  0,
+  30,
+  150,
+  50
+ ];
 
 
-    let prize =
-    prizes[index];
+ const index=
+  Math.floor(
+   Math.random()*prizes.length
+  );
 
 
-    wheelRotation +=
-    720 + index * 45;
+ const prize=
+  prizes[index];
 
 
-    document.getElementById("wheel")
-    .style.transform =
-    "rotate(" + wheelRotation + "deg)";
+ wheelRotation +=
+  720 +
+  index*45;
 
 
-    setTimeout(function(){
+ const wheel=
+  document.getElementById("wheel");
 
-        if(prize > 0){
 
-            addCoins(prize);
-            countWin();
+ wheel.style.transform=
+  "rotate("+
+  wheelRotation+
+  "deg)";
 
-            document.getElementById("wheelMessage")
-            .textContent =
-            "🎉 You won +"
-            + prize +
-            " virtual coins!";
 
-        }
+ const msg=
+  document
+  .getElementById("wheelMessage");
 
-        else{
 
-            document.getElementById("wheelMessage")
-            .textContent =
-            "🙂 Better luck next time!";
+ msg.textContent=
+  "🎡 Spinning...";
 
-        }
 
-    },2000);
+ setTimeout(
+
+  function(){
+
+   if(prize>0){
+
+    countWin();
+
+    addCoins(prize);
+
+    msg.textContent=
+     "🎉 You won +"+
+     prize+
+     " virtual coins!";
+
+   }else{
+
+    msg.textContent=
+     "🙂 Better luck next time!";
+
+   }
+
+   updateStats();
+
+  },
+
+  2100
+
+ );
 
 }
 
 
-/* ROULETTE */
+/* =========================
+   ROULETTE
+========================= */
 
 function playRoulette(choice){
 
-    if(!spend(20)) return;
+ if(!spend(20)) return;
 
-    countGame();
-
-
-    let options = [
-        "red",
-        "black",
-        "green"
-    ];
+ countGame();
 
 
-    let result =
-    options[
-        Math.floor(Math.random()*3)
-    ];
+ const options=[
+  "red",
+  "black",
+  "green"
+ ];
 
 
-    if(choice === result){
-
-        if(result === "green"){
-
-            addCoins(200);
-
-        }
-
-        else{
-
-            addCoins(80);
-
-        }
-
-        countWin();
+ const result=
+  options[
+   Math.floor(
+    Math.random()*3
+   )
+  ];
 
 
-        document.getElementById("rouletteMessage")
-        .textContent =
-        "🎉 Result: "
-        + result.toUpperCase()
-        + " — You won!";
+ const msg=
+  document
+  .getElementById("rouletteMessage");
 
-    }
 
-    else{
+ if(choice===result){
 
-        document.getElementById("rouletteMessage")
-        .textContent =
-        "❌ Result: "
-        + result.toUpperCase()
-        + " — Try again!";
+  countWin();
 
-    }
+
+  if(result==="green"){
+
+   addCoins(200);
+
+  }else{
+
+   addCoins(80);
+
+  }
+
+
+  msg.textContent=
+   "🎉 Result: "+
+   result.toUpperCase()+
+   " — You won!";
+
+ }else{
+
+  msg.textContent=
+   "❌ Result: "+
+   result.toUpperCase()+
+   " — Try again!";
+
+ }
+
+
+ updateStats();
 
 }
 
 
-/* AUTO LOGIN */
+/* =========================
+   BLACKJACK DEMO
+========================= */
+
+function playBlackjack(){
+
+ if(!spend(20)) return;
+
+ countGame();
+
+
+ const player=
+  Math.floor(
+   Math.random()*12
+  )+10;
+
+
+ const dealer=
+  Math.floor(
+   Math.random()*12
+  )+10;
+
+
+ document
+ .getElementById("blackjackResult")
+ .textContent=
+ "🃏 "+
+ player+
+ " vs "+
+ dealer;
+
+
+ const msg=
+  document
+  .getElementById("blackjackMessage");
+
+
+ if(player>21){
+
+  msg.textContent=
+   "💥 Bust!";
+
+ }else if(
+  player>dealer ||
+  dealer>21
+ ){
+
+  countWin();
+
+  addCoins(100);
+
+  msg.textContent=
+   "🎉 You win! +100 virtual coins";
+
+ }else if(
+  player===dealer
+ ){
+
+  addCoins(20);
+
+  msg.textContent=
+   "🤝 Draw! +20 virtual coins";
+
+ }else{
+
+  msg.textContent=
+   "❌ Dealer wins!";
+
+ }
+
+
+ updateStats();
+
+}
+
+
+/* =========================
+   THEME
+========================= */
+
+function toggleTheme(){
+
+ const isLight=
+  document
+  .body
+  .classList
+  .toggle("light");
+
+
+ localStorage.setItem(
+  "theme",
+  isLight
+   ? "light"
+   : "dark"
+ );
+
+
+ document
+ .getElementById("themeBtn")
+ .textContent=
+  isLight
+   ? "Dark"
+   : "Light";
+
+}
+
+
+/* =========================
+   SOUND SETTING
+========================= */
+
+function toggleSound(){
+
+ soundOn=!soundOn;
+
+
+ localStorage.setItem(
+  "soundOn",
+  String(soundOn)
+ );
+
+
+ document
+ .getElementById("soundBtn")
+ .textContent=
+  soundOn
+   ? "On"
+   : "Off";
+
+
+ if(soundOn){
+
+  beep(700,.1);
+
+ }
+
+}
+
+
+/* =========================
+   RESET DEMO
+========================= */
+
+function resetDemo(){
+
+ if(!currentUser){
+
+  alert(
+   "Please login first."
+  );
+
+  return;
+
+ }
+
+
+ const ok=
+  confirm(
+   "Reset your demo data to 1450 coins?"
+  );
+
+
+ if(!ok)return;
+
+
+ coins=1450;
+
+
+ setNum(
+  "coins",
+  1450
+ );
+
+
+ setNum(
+  "games",
+  0
+ );
+
+
+ setNum(
+  "wins",
+  0
+ );
+
+
+ localStorage.setItem(
+  key("history"),
+
+  JSON.stringify([
+
+   new Date().toLocaleTimeString()+
+   " — ♻️ Demo data reset to 1450 coins"
+
+  ])
+
+ );
+
+
+ updateAll();
+
+
+ alert(
+  "Demo data reset successfully."
+ );
+
+}
+
+
+/* =========================
+   LOAD SETTINGS
+========================= */
+
+function loadSettings(){
+
+ const theme=
+  localStorage.getItem(
+   "theme"
+  );
+
+
+ if(theme==="light"){
+
+  document
+  .body
+  .classList
+  .add("light");
+
+  document
+  .getElementById("themeBtn")
+  .textContent="Dark";
+
+ }else{
+
+  document
+  .getElementById("themeBtn")
+  .textContent="Light";
+
+ }
+
+
+ document
+ .getElementById("soundBtn")
+ .textContent=
+  soundOn
+   ? "On"
+   : "Off";
+
+}
+
+
+/* =========================
+   START APP
+========================= */
+
+loadSettings();
+
 
 if(currentUser){
-    showHome();
+
+ coins=
+  getNum(
+   "coins",
+   1450
+  );
+
+ showHome();
+
 }
 
 </script>
-
 </body>
 </html>
