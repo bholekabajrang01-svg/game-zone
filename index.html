@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Game Zone - Virtual Demo</title>
+<title>Game Zone</title>
 
 <style>
 *{box-sizing:border-box}
@@ -12,35 +12,34 @@ body{
 margin:0;
 font-family:Arial,sans-serif;
 background:linear-gradient(135deg,#0d1230,#211957);
-color:#fff;
-min-height:100vh
+color:white;
+min-height:100vh;
 }
 
 .container{
 width:92%;
 max-width:650px;
 margin:auto;
-padding:18px 0 50px
+padding:20px 0 50px;
 }
 
 h1{
 text-align:center;
 font-size:42px;
-margin:15px 0 28px
+margin:15px 0 30px;
 }
 
 .card{
 background:#202b3d;
 border-radius:28px;
-padding:24px;
-margin-bottom:24px;
-box-shadow:0 15px 35px rgba(0,0,0,.25)
+padding:25px;
+margin-bottom:25px;
+box-shadow:0 15px 35px rgba(0,0,0,.25);
 }
 
 h2{
 text-align:center;
-font-size:29px;
-margin:8px 0 20px
+font-size:30px;
 }
 
 input{
@@ -50,9 +49,9 @@ margin:7px 0;
 border:0;
 border-radius:17px;
 background:#3a455a;
-color:#fff;
+color:white;
 font-size:18px;
-outline:none
+outline:none;
 }
 
 button{
@@ -62,39 +61,39 @@ margin-top:12px;
 border:0;
 border-radius:17px;
 background:#625bea;
-color:#fff;
+color:white;
 font-size:19px;
 font-weight:bold;
-cursor:pointer
+cursor:pointer;
 }
 
 button:active{
-transform:scale(.98)
+transform:scale(.98);
 }
 
 .link{
 text-align:center;
-margin-top:20px;
+margin-top:22px;
 color:#aeb8ff;
 cursor:pointer;
-font-size:18px
+font-size:18px;
 }
 
 .hidden{
-display:none!important
+display:none!important;
 }
 
 .welcome{
 display:flex;
 justify-content:space-between;
 align-items:center;
-gap:10px
+gap:10px;
 }
 
 .logout{
 width:auto;
 background:#e52c2c;
-padding:12px 18px
+padding:13px 20px;
 }
 
 .coins{
@@ -102,25 +101,25 @@ background:#10182a;
 border-radius:23px;
 text-align:center;
 padding:22px;
-margin-top:20px
+margin-top:20px;
 }
 
 .coin-number{
 font-size:52px;
-font-weight:bold
+font-weight:bold;
 }
 
 .small{
 color:#b9c0d0;
 text-align:center;
-font-size:17px
+font-size:17px;
 }
 
 .game-icons{
 display:flex;
 justify-content:center;
 gap:12px;
-margin:22px 0
+margin:22px 0;
 }
 
 .icon{
@@ -129,24 +128,24 @@ background:#10182a;
 border-radius:18px;
 padding:22px 5px;
 font-size:48px;
-text-align:center
+text-align:center;
 }
 
 .message{
 text-align:center;
 font-size:19px;
 min-height:30px;
-margin-top:15px
+margin-top:15px;
 }
 
 .result{
 text-align:center;
-font-size:64px;
-margin:20px
+font-size:70px;
+margin:20px;
 }
 
 .back{
-background:#3a455a
+background:#3a455a;
 }
 
 .history{
@@ -154,59 +153,13 @@ background:#10182a;
 padding:12px;
 border-radius:15px;
 margin-top:10px;
-max-height:240px;
-overflow:auto
+max-height:220px;
+overflow:auto;
 }
 
 .history div{
-padding:9px;
-border-bottom:1px solid #303a50
-}
-
-.menu button{
-margin-top:10px
-}
-
-.profile-hero{
-background:#10182a;
-border-radius:25px;
-padding:28px;
-text-align:center
-}
-
-.avatar{
-font-size:90px
-}
-
-.profile-name{
-font-size:38px;
-color:#b7aaff;
-margin-top:8px
-}
-
-.stats{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:14px;
-margin-top:18px
-}
-
-.stat{
-background:#10182a;
-border-radius:20px;
-padding:18px;
-text-align:center
-}
-
-.stat-title{
-font-size:20px;
-color:#ddd
-}
-
-.stat-value{
-font-size:38px;
-font-weight:bold;
-margin-top:8px
+padding:8px;
+border-bottom:1px solid #303a50;
 }
 
 .wheel{
@@ -215,7 +168,7 @@ height:210px;
 border-radius:50%;
 margin:20px auto;
 background:conic-gradient(
-#ff4b4b 0 45deg,
+#ff4b4b 0deg 45deg,
 #ffd43b 45deg 90deg,
 #4dabf7 90deg 135deg,
 #51cf66 135deg 180deg,
@@ -224,26 +177,53 @@ background:conic-gradient(
 #20c997 270deg 315deg,
 #f06595 315deg 360deg
 );
-border:10px solid #fff;
+border:10px solid white;
 display:flex;
 align-items:center;
 justify-content:center;
 font-size:45px;
-transition:transform 2s ease-out
+transition:transform 2s ease-out;
 }
 
-.notice{
-font-size:14px;
-color:#b9c0d0;
+.profile{
 text-align:center;
-margin-top:15px
+}
+
+.avatar{
+font-size:100px;
+}
+
+.stat-box{
+display:flex;
+gap:20px;
+}
+
+.stat{
+width:50%;
+background:#10182a;
+border-radius:22px;
+padding:20px;
+text-align:center;
+font-size:24px;
+}
+
+.stat strong{
+display:block;
+font-size:45px;
+margin-top:8px;
+}
+
+.menu button{
+margin-top:10px;
 }
 
 @media(max-width:500px){
 h1{font-size:37px}
-.card{padding:20px}
+.card{padding:21px}
 .coin-number{font-size:46px}
-.profile-name{font-size:32px}
+.stat-box{gap:10px}
+.stat{font-size:20px;padding:15px}
+.stat strong{font-size:38px}
 }
 </style>
 </head>
@@ -255,23 +235,16 @@ h1{font-size:37px}
 <h1>🎮 Game Zone</h1>
 
 <!-- LOGIN -->
-
 <div id="loginBox" class="card">
 
 <h2>🔐 Login</h2>
 
 <input id="loginUser" placeholder="Username">
+<input id="loginPass" type="password" placeholder="Password">
 
-<input id="loginPass"
-type="password"
-placeholder="Password">
+<button onclick="login()">Login</button>
 
-<button onclick="login()">
-Login
-</button>
-
-<div class="link"
-onclick="showSignup()">
+<div class="link" onclick="showSignup()">
 Don't have an account? Signup
 </div>
 
@@ -279,28 +252,17 @@ Don't have an account? Signup
 
 
 <!-- SIGNUP -->
-
 <div id="signupBox" class="card hidden">
 
 <h2>📝 Create Account</h2>
 
-<input id="signupUser"
-placeholder="Username">
+<input id="signupUser" placeholder="Username">
+<input id="signupPass" type="password" placeholder="Password">
+<input id="signupPass2" type="password" placeholder="Confirm Password">
 
-<input id="signupPass"
-type="password"
-placeholder="Password">
+<button onclick="signup()">Create Account</button>
 
-<input id="signupPass2"
-type="password"
-placeholder="Confirm Password">
-
-<button onclick="signup()">
-Create Account
-</button>
-
-<div class="link"
-onclick="showLogin()">
+<div class="link" onclick="showLogin()">
 Already have an account? Login
 </div>
 
@@ -308,7 +270,6 @@ Already have an account? Login
 
 
 <!-- HOME -->
-
 <div id="home" class="hidden">
 
 <div class="card">
@@ -316,95 +277,56 @@ Already have an account? Login
 <div class="welcome">
 
 <div>
-
-<div style="font-size:24px">
-Welcome 👋
-</div>
-
+<div style="font-size:24px">Welcome 👋</div>
 <div id="usernameDisplay"
-style="font-size:26px;color:#b7aaff">
+style="font-size:26px;color:#b7aaff"></div>
 </div>
 
-</div>
-
-<button class="logout"
-onclick="logout()">
-Logout
-</button>
+<button class="logout" onclick="logout()">Logout</button>
 
 </div>
-
 
 <div class="coins">
-
-<div style="font-size:24px">
-🪙 Virtual Coins
-</div>
-
-<div id="coins"
-class="coin-number">
-1450
-</div>
-
+<div style="font-size:24px">🪙 Virtual Coins</div>
+<div id="coins" class="coin-number">1450</div>
 </div>
 
 </div>
 
 
 <!-- PROFILE -->
-
-<div class="card">
+<div class="card profile">
 
 <h2>👤 Profile</h2>
 
-<div class="profile-hero">
+<div class="coins">
 
-<div class="avatar">
-😎
-</div>
+<div class="avatar">😎</div>
 
-<div>
+<div style="font-size:28px">
 Welcome
 </div>
 
 <div id="profileName"
-class="profile-name">
+style="font-size:38px;color:#b7aaff">
+User
 </div>
 
 </div>
 
-
-<div class="stats">
+<div class="stat-box">
 
 <div class="stat">
-
-<div class="stat-title">
 🪙 Coins
+<strong id="profileCoins">0</strong>
 </div>
-
-<div id="profileCoins"
-class="stat-value">
-1450
-</div>
-
-</div>
-
 
 <div class="stat">
-
-<div class="stat-title">
 🎮 Games
-</div>
-
-<div id="gamesPlayed"
-class="stat-value">
-0
+<strong>8</strong>
 </div>
 
 </div>
-
-</div>
-
 
 <button onclick="showActivity()">
 📜 My Activity
@@ -413,85 +335,45 @@ class="stat-value">
 </div>
 
 
-<!-- DEMO WALLET -->
-
+<!-- WALLET -->
 <div class="card">
 
-<h2>
-💰 Demo Wallet
-</h2>
+<h2>💰 Demo Wallet</h2>
 
 <div class="coins">
 
-<div style="font-size:24px">
+<div style="font-size:28px">
 🪙 Virtual Coins
 </div>
 
 <div id="walletCoins"
 class="coin-number">
-1450
+0
 </div>
 
 </div>
 
-<div class="notice">
-Demo wallet only. No real-money deposits,
-withdrawals or cash prizes.
-</div>
-
-</div>
-
-
-<!-- ACTIVITY -->
-
-<div id="activityCard"
-class="card hidden">
-
-<h2>
-📜 My Activity
-</h2>
-
-<div id="history"
-class="history">
-No history yet.
-</div>
-
-<button class="back"
-onclick="hideActivity()">
-← Back to Home
-</button>
+<p class="small">
+This is a demo wallet using virtual coins only.
+</p>
 
 </div>
 
 
 <!-- SLOTS -->
-
 <div class="card">
 
-<h2>
-🎰 Lucky Slots
-</h2>
+<h2>🎰 Lucky Slots</h2>
 
 <p class="small">
-Virtual coins only.
+Demo game using virtual coins only.
 </p>
 
 <div class="game-icons">
 
-<div class="icon"
-id="slot1">
-🍊
-</div>
-
-<div class="icon"
-id="slot2">
-7️⃣
-</div>
-
-<div class="icon"
-id="slot3">
-⭐
-</div>
+<div class="icon" id="slot1">🍊</div>
+<div class="icon" id="slot2">7️⃣</div>
+<div class="icon" id="slot3">⭐</div>
 
 </div>
 
@@ -499,20 +381,15 @@ id="slot3">
 PLAY — 50 COINS
 </button>
 
-<div id="slotMessage"
-class="message">
-</div>
+<div id="slotMessage" class="message"></div>
 
 </div>
 
 
-<!-- GAME MENU -->
-
+<!-- GAMES -->
 <div class="card menu">
 
-<h2>
-🎮 Games
-</h2>
+<h2>🎮 Games</h2>
 
 <button onclick="openGame('dice')">
 🎲 Dice Demo
@@ -542,15 +419,24 @@ class="message">
 
 
 <!-- LEADERBOARD -->
-
 <div class="card">
 
-<h2>
-🏆 Leaderboard
-</h2>
+<h2>🏆 Leaderboard</h2>
 
 <div id="leaderboard">
 No players yet.
+</div>
+
+</div>
+
+
+<!-- HISTORY -->
+<div class="card">
+
+<h2>📜 Coins History</h2>
+
+<div id="history" class="history">
+No history yet.
 </div>
 
 </div>
@@ -559,20 +445,15 @@ No players yet.
 
 
 <!-- DICE -->
+<div id="diceGame" class="card hidden">
 
-<div id="diceGame"
-class="card hidden">
-
-<h2>
-🎲 Dice Demo
-</h2>
+<h2>🎲 Dice Demo</h2>
 
 <p class="small">
 Guess a number from 1 to 6.
 </p>
 
-<div id="diceResult"
-class="result">
+<div id="diceResult" class="result">
 🎲
 </div>
 
@@ -586,12 +467,9 @@ placeholder="Enter 1 - 6">
 PLAY — 20 COINS
 </button>
 
-<div id="diceMessage"
-class="message">
-</div>
+<div id="diceMessage" class="message"></div>
 
-<button class="back"
-onclick="closeGames()">
+<button class="back" onclick="closeGames()">
 ← Back to Games
 </button>
 
@@ -599,20 +477,15 @@ onclick="closeGames()">
 
 
 <!-- CARD -->
+<div id="cardGame" class="card hidden">
 
-<div id="cardGame"
-class="card hidden">
-
-<h2>
-🃏 Card Demo
-</h2>
+<h2>🃏 Card Demo</h2>
 
 <p class="small">
 Draw a random card.
 </p>
 
-<div id="playerCard"
-class="result">
+<div id="playerCard" class="result">
 🃏
 </div>
 
@@ -620,12 +493,9 @@ class="result">
 DRAW CARD — 20 COINS
 </button>
 
-<div id="cardMessage"
-class="message">
-</div>
+<div id="cardMessage" class="message"></div>
 
-<button class="back"
-onclick="closeGames()">
+<button class="back" onclick="closeGames()">
 ← Back to Games
 </button>
 
@@ -633,13 +503,9 @@ onclick="closeGames()">
 
 
 <!-- NUMBER -->
+<div id="numberGame" class="card hidden">
 
-<div id="numberGame"
-class="card hidden">
-
-<h2>
-🎯 Lucky Number
-</h2>
+<h2>🎯 Lucky Number</h2>
 
 <p class="small">
 Guess a number between 1 and 10.
@@ -659,12 +525,9 @@ placeholder="Enter 1 - 10">
 PLAY — 20 COINS
 </button>
 
-<div id="numberMessage"
-class="message">
-</div>
+<div id="numberMessage" class="message"></div>
 
-<button class="back"
-onclick="closeGames()">
+<button class="back" onclick="closeGames()">
 ← Back to Games
 </button>
 
@@ -672,20 +535,15 @@ onclick="closeGames()">
 
 
 <!-- WHEEL -->
+<div id="wheelGame" class="card hidden">
 
-<div id="wheelGame"
-class="card hidden">
-
-<h2>
-🎡 Spin Wheel
-</h2>
+<h2>🎡 Spin Wheel</h2>
 
 <p class="small">
 Spin using 20 virtual coins.
 </p>
 
-<div id="wheel"
-class="wheel">
+<div id="wheel" class="wheel">
 🎡
 </div>
 
@@ -693,12 +551,9 @@ class="wheel">
 SPIN — 20 COINS
 </button>
 
-<div id="wheelMessage"
-class="message">
-</div>
+<div id="wheelMessage" class="message"></div>
 
-<button class="back"
-onclick="closeGames()">
+<button class="back" onclick="closeGames()">
 ← Back to Games
 </button>
 
@@ -706,17 +561,12 @@ onclick="closeGames()">
 
 
 <!-- ROULETTE -->
+<div id="rouletteGame" class="card hidden">
 
-<div id="rouletteGame"
-class="card hidden">
-
-<h2>
-🔴 Roulette Demo
-</h2>
+<h2>🔴 Roulette Demo</h2>
 
 <p class="small">
 Choose Red, Black or Green.
-Virtual coins only.
 </p>
 
 <div class="result">
@@ -735,12 +585,9 @@ Virtual coins only.
 🟢 GREEN
 </button>
 
-<div id="rouletteMessage"
-class="message">
-</div>
+<div id="rouletteMessage" class="message"></div>
 
-<button class="back"
-onclick="closeGames()">
+<button class="back" onclick="closeGames()">
 ← Back to Games
 </button>
 
@@ -748,21 +595,15 @@ onclick="closeGames()">
 
 
 <!-- BLACKJACK -->
+<div id="blackjackGame" class="card hidden">
 
-<div id="blackjackGame"
-class="card hidden">
-
-<h2>
-♠️ Blackjack Demo
-</h2>
+<h2>♠️ Blackjack Demo</h2>
 
 <p class="small">
-Simple virtual demo.
-Try to beat the dealer.
+Try to get closer to 21.
 </p>
 
-<div id="blackjackResult"
-class="result">
+<div id="blackjackResult" class="result">
 🃏
 </div>
 
@@ -770,58 +611,67 @@ class="result">
 PLAY — 20 COINS
 </button>
 
-<div id="blackjackMessage"
-class="message">
-</div>
+<div id="blackjackMessage" class="message"></div>
 
-<button class="back"
-onclick="closeGames()">
+<button class="back" onclick="closeGames()">
 ← Back to Games
 </button>
 
 </div>
+
+
+<!-- ACTIVITY -->
+<div id="activityGame" class="card hidden">
+
+<h2>📜 My Activity</h2>
+
+<div id="activityHistory"
+class="history">
+No activity yet.
+</div>
+
+<button class="back" onclick="closeActivity()">
+← Back to Profile
+</button>
 
 </div>
 
 
 <script>
 
-let currentUser =
-localStorage.getItem("currentUser");
+let currentUser=localStorage.getItem("currentUser");
 
-let coins =
-currentUser
-?
-(Number(localStorage.getItem("coins_"+currentUser)) || 1450)
-:
-1450;
+let coins=1450;
 
-let gamesCount =
-currentUser
-?
-(Number(localStorage.getItem("games_"+currentUser)) || 0)
-:
-0;
+let wheelRotation=0;
 
-let wheelRotation = 0;
+if(currentUser){
+coins=Number(
+localStorage.getItem("coins_"+currentUser)
+)||1450;
+}
 
 
 /* SCREEN */
 
 function showSignup(){
 
-loginBox.classList.add("hidden");
+document.getElementById("loginBox")
+.classList.add("hidden");
 
-signupBox.classList.remove("hidden");
+document.getElementById("signupBox")
+.classList.remove("hidden");
 
 }
 
 
 function showLogin(){
 
-signupBox.classList.add("hidden");
+document.getElementById("signupBox")
+.classList.add("hidden");
 
-loginBox.classList.remove("hidden");
+document.getElementById("loginBox")
+.classList.remove("hidden");
 
 }
 
@@ -830,42 +680,38 @@ loginBox.classList.remove("hidden");
 
 function signup(){
 
-let user =
-signupUser.value.trim();
+let user=
+document.getElementById("signupUser")
+.value.trim();
 
-let pass =
-signupPass.value;
+let pass=
+document.getElementById("signupPass")
+.value;
 
-let pass2 =
-signupPass2.value;
+let pass2=
+document.getElementById("signupPass2")
+.value;
 
-
-if(!user || !pass){
+if(!user||!pass){
 
 alert("Please enter username and password.");
 
 return;
-
 }
 
-
-if(pass !== pass2){
+if(pass!==pass2){
 
 alert("Passwords do not match.");
 
 return;
-
 }
-
 
 if(localStorage.getItem("user_"+user)){
 
 alert("Username already exists.");
 
 return;
-
 }
-
 
 localStorage.setItem(
 "user_"+user,
@@ -874,26 +720,21 @@ pass
 
 localStorage.setItem(
 "coins_"+user,
-"1450"
-);
-
-localStorage.setItem(
-"games_"+user,
-"0"
+1450
 );
 
 localStorage.setItem(
 "history_"+user,
 JSON.stringify([
-"🎁 Account created: +1450 virtual coins"
+"🎁 Account created: +1450 coins"
 ])
 );
 
-loginUser.value = user;
-
-loginPass.value = "";
-
 alert("Account created successfully!");
+
+document.getElementById(
+"loginUser"
+).value=user;
 
 showLogin();
 
@@ -904,52 +745,42 @@ showLogin();
 
 function login(){
 
-let user =
-loginUser.value.trim();
+let user=
+document.getElementById("loginUser")
+.value.trim();
 
-let pass =
-loginPass.value;
+let pass=
+document.getElementById("loginPass")
+.value;
 
-let saved =
+let saved=
 localStorage.getItem("user_"+user);
-
 
 if(!saved){
 
-alert(
-"Account not found. Please signup first."
-);
+alert("Account not found. Please signup first.");
 
 return;
-
 }
 
-
-if(saved !== pass){
+if(saved!==pass){
 
 alert("Wrong password.");
 
 return;
-
 }
 
-
-currentUser = user;
+currentUser=user;
 
 localStorage.setItem(
 "currentUser",
 user
 );
 
-coins =
+coins=
 Number(
 localStorage.getItem("coins_"+user)
-) || 1450;
-
-gamesCount =
-Number(
-localStorage.getItem("games_"+user)
-) || 0;
+)||1450;
 
 showHome();
 
@@ -960,17 +791,22 @@ showHome();
 
 function showHome(){
 
-loginBox.classList.add("hidden");
+document.getElementById("loginBox")
+.classList.add("hidden");
 
-signupBox.classList.add("hidden");
+document.getElementById("signupBox")
+.classList.add("hidden");
 
-home.classList.remove("hidden");
+document.getElementById("home")
+.classList.remove("hidden");
 
-usernameDisplay.textContent =
-currentUser;
+document.getElementById(
+"usernameDisplay"
+).textContent=currentUser;
 
-profileName.textContent =
-currentUser;
+document.getElementById(
+"profileName"
+).textContent=currentUser;
 
 updateCoins();
 
@@ -978,18 +814,12 @@ updateHistory();
 
 updateLeaderboard();
 
-updateStats();
-
 }
 
 
-/* LOGOUT */
-
 function logout(){
 
-localStorage.removeItem(
-"currentUser"
-);
+localStorage.removeItem("currentUser");
 
 location.reload();
 
@@ -1000,19 +830,17 @@ location.reload();
 
 function updateCoins(){
 
-coins =
-Math.max(
-0,
-Math.floor(coins)
-);
+document.getElementById(
+"coins"
+).textContent=coins;
 
-document
-.querySelectorAll(
-"#coins,#walletCoins,#profileCoins"
-)
-.forEach(
-e => e.textContent = coins
-);
+document.getElementById(
+"profileCoins"
+).textContent=coins;
+
+document.getElementById(
+"walletCoins"
+).textContent=coins;
 
 if(currentUser){
 
@@ -1028,40 +856,20 @@ updateLeaderboard();
 }
 
 
-/* STATS */
-
-function updateStats(){
-
-gamesPlayed.textContent =
-gamesCount;
-
-localStorage.setItem(
-"games_"+currentUser,
-gamesCount
-);
-
-}
-
-
-/* SPEND */
-
 function spend(amount){
 
-if(coins < amount){
+if(coins<amount){
 
-alert(
-"Not enough virtual coins!"
-);
+alert("Not enough virtual coins!");
 
 return false;
 
 }
 
-coins -= amount;
+coins-=amount;
 
 addHistory(
-"💸 Used "+amount+
-" virtual coins"
+"💸 Used "+amount+" coins"
 );
 
 updateCoins();
@@ -1071,29 +879,15 @@ return true;
 }
 
 
-/* WIN */
+function addCoins(amount){
 
-function win(amount){
-
-coins += amount;
+coins+=amount;
 
 addHistory(
-"🎁 Won +"+amount+
-" virtual coins"
+"🎁 Won +"+amount+" coins"
 );
 
 updateCoins();
-
-}
-
-
-/* GAME COUNT */
-
-function played(){
-
-gamesCount++;
-
-updateStats();
 
 }
 
@@ -1104,24 +898,23 @@ function addHistory(text){
 
 if(!currentUser)return;
 
-let h =
+let history=
 JSON.parse(
 localStorage.getItem(
 "history_"+currentUser
 )
-) || [];
+)||[];
 
-h.unshift(
-new Date().toLocaleTimeString()+
-" — "+
-text
+history.unshift(
+new Date().toLocaleTimeString()
++" — "+text
 );
+
+history=history.slice(0,30);
 
 localStorage.setItem(
 "history_"+currentUser,
-JSON.stringify(
-h.slice(0,50)
-)
+JSON.stringify(history)
 );
 
 updateHistory();
@@ -1131,69 +924,82 @@ updateHistory();
 
 function updateHistory(){
 
-let h =
+let box=
+document.getElementById("history");
+
+if(!currentUser){
+
+box.innerHTML="No history yet.";
+
+return;
+}
+
+let history=
 JSON.parse(
 localStorage.getItem(
 "history_"+currentUser
 )
-) || [];
+)||[];
 
-history.innerHTML =
-h.length
-?
-h.map(
-x =>
-"<div>"+
-escapeHtml(x)+
-"</div>"
-).join("")
-:
-"No history yet.";
+if(history.length===0){
+
+box.innerHTML="No history yet.";
+
+return;
+}
+
+box.innerHTML=
+history
+.map(x=>"<div>"+x+"</div>")
+.join("");
 
 }
 
-
-function escapeHtml(s){
-
-return s.replace(
-/[&<>"']/g,
-m =>
-({
-"&":"&amp;",
-"<":"&lt;",
-">":"&gt;",
-'"':"&quot;",
-"'":"&#039;"
-}[m])
-);
-
-}
-
-
-/* ACTIVITY */
 
 function showActivity(){
 
-activityCard.classList.remove(
-"hidden"
+document.getElementById("home")
+.classList.add("hidden");
+
+document.getElementById("activityGame")
+.classList.remove("hidden");
+
+let history=
+JSON.parse(
+localStorage.getItem(
+"history_"+currentUser
+)
+)||[];
+
+let box=
+document.getElementById(
+"activityHistory"
 );
 
-activityCard.scrollIntoView({
-behavior:"smooth"
-});
+if(history.length===0){
+
+box.innerHTML="No activity yet.";
+
+return;
+}
+
+box.innerHTML=
+history
+.map(x=>"<div>"+x+"</div>")
+.join("");
 
 }
 
 
-function hideActivity(){
+function closeActivity(){
 
-activityCard.classList.add(
-"hidden"
-);
+document.getElementById(
+"activityGame"
+).classList.add("hidden");
 
-home.scrollIntoView({
-behavior:"smooth"
-});
+document.getElementById(
+"home"
+).classList.remove("hidden");
 
 }
 
@@ -1204,9 +1010,7 @@ function playSlots(){
 
 if(!spend(50))return;
 
-played();
-
-let s = [
+let symbols=[
 "🍊",
 "7️⃣",
 "⭐",
@@ -1215,62 +1019,67 @@ let s = [
 "🍋"
 ];
 
-let a =
-s[
+let a=
+symbols[
 Math.floor(
-Math.random()*s.length
+Math.random()*symbols.length
 )
 ];
 
-let b =
-s[
+let b=
+symbols[
 Math.floor(
-Math.random()*s.length
+Math.random()*symbols.length
 )
 ];
 
-let c =
-s[
+let c=
+symbols[
 Math.floor(
-Math.random()*s.length
+Math.random()*symbols.length
 )
 ];
 
-slot1.textContent = a;
+document.getElementById(
+"slot1"
+).textContent=a;
 
-slot2.textContent = b;
+document.getElementById(
+"slot2"
+).textContent=b;
 
-slot3.textContent = c;
+document.getElementById(
+"slot3"
+).textContent=c;
 
+let msg=
+document.getElementById(
+"slotMessage"
+);
 
-if(
-a===b &&
-b===c
-){
+if(a===b&&b===c){
 
-win(300);
+addCoins(300);
 
-slotMessage.textContent =
+msg.textContent=
 "🎉 JACKPOT! +300 virtual coins";
 
 }
-
 else if(
-a===b ||
-b===c ||
+a===b||
+b===c||
 a===c
 ){
 
-win(100);
+addCoins(100);
 
-slotMessage.textContent =
+msg.textContent=
 "😃 Nice! +100 virtual coins";
 
 }
-
 else{
 
-slotMessage.textContent =
+msg.textContent=
 "🙂 Try again!";
 
 }
@@ -1282,37 +1091,30 @@ slotMessage.textContent =
 
 function openGame(game){
 
-home.classList.add(
-"hidden"
-);
+document.getElementById(
+"home"
+).classList.add("hidden");
 
-[
+let games=[
 "diceGame",
 "cardGame",
 "numberGame",
 "wheelGame",
 "rouletteGame",
-"blackjackGame"
-]
-.forEach(
-id =>
-document
-.getElementById(id)
-.classList.add("hidden")
-);
+"blackjackGame",
+"activityGame"
+];
 
-document
-.getElementById(
+games.forEach(function(id){
+
+document.getElementById(id)
+.classList.add("hidden");
+
+});
+
+document.getElementById(
 game+"Game"
-)
-.classList.remove(
-"hidden"
-);
-
-window.scrollTo(
-0,
-0
-);
+).classList.remove("hidden");
 
 }
 
@@ -1321,29 +1123,25 @@ window.scrollTo(
 
 function closeGames(){
 
-[
+let games=[
 "diceGame",
 "cardGame",
 "numberGame",
 "wheelGame",
 "rouletteGame",
 "blackjackGame"
-]
-.forEach(
-id =>
-document
-.getElementById(id)
-.classList.add("hidden")
-);
+];
 
-home.classList.remove(
-"hidden"
-);
+games.forEach(function(id){
 
-window.scrollTo(
-0,
-0
-);
+document.getElementById(id)
+.classList.add("hidden");
+
+});
+
+document.getElementById(
+"home"
+).classList.remove("hidden");
 
 }
 
@@ -1352,51 +1150,50 @@ window.scrollTo(
 
 function playDice(){
 
-let g =
+let guess=
 Number(
-diceGuess.value
+document.getElementById(
+"diceGuess"
+).value
 );
 
-if(
-g < 1 ||
-g > 6
-){
+if(guess<1||guess>6){
 
 alert(
 "Enter a number from 1 to 6."
 );
 
 return;
-
 }
-
 
 if(!spend(20))return;
 
-played();
-
-let d =
+let dice=
 Math.floor(
 Math.random()*6
 )+1;
 
-diceResult.textContent =
-"🎲 "+d;
+document.getElementById(
+"diceResult"
+).textContent=
+"🎲 "+dice;
 
+if(guess===dice){
 
-if(g===d){
+addCoins(100);
 
-win(100);
-
-diceMessage.textContent =
+document.getElementById(
+"diceMessage"
+).textContent=
 "🎉 Correct! +100 virtual coins";
 
 }
-
 else{
 
-diceMessage.textContent =
-"❌ Wrong! Number was "+d;
+document.getElementById(
+"diceMessage"
+).textContent=
+"❌ Wrong! Number was "+dice;
 
 }
 
@@ -1409,9 +1206,7 @@ function playCard(){
 
 if(!spend(20))return;
 
-played();
-
-let cards = [
+let cards=[
 "🂡",
 "🂢",
 "🂣",
@@ -1427,27 +1222,31 @@ let cards = [
 "🂮"
 ];
 
-let i =
+let index=
 Math.floor(
 Math.random()*cards.length
 );
 
-playerCard.textContent =
-cards[i];
+document.getElementById(
+"playerCard"
+).textContent=
+cards[index];
 
+if(index>=10){
 
-if(i>=10){
+addCoins(80);
 
-win(80);
-
-cardMessage.textContent =
+document.getElementById(
+"cardMessage"
+).textContent=
 "🎉 High Card! +80 virtual coins";
 
 }
-
 else{
 
-cardMessage.textContent =
+document.getElementById(
+"cardMessage"
+).textContent=
 "🙂 Card drawn!";
 
 }
@@ -1459,51 +1258,48 @@ cardMessage.textContent =
 
 function playNumber(){
 
-let g =
+let guess=
 Number(
-numberGuess.value
+document.getElementById(
+"numberGuess"
+).value
 );
 
-if(
-g<1 ||
-g>10
-){
+if(guess<1||guess>10){
 
 alert(
 "Enter a number from 1 to 10."
 );
 
 return;
-
 }
-
 
 if(!spend(20))return;
 
-played();
-
-let n =
+let lucky=
 Math.floor(
 Math.random()*10
 )+1;
 
+if(guess===lucky){
 
-if(g===n){
+addCoins(150);
 
-win(150);
-
-numberMessage.textContent =
-"🎯 PERFECT! Number was "+
-n+
+document.getElementById(
+"numberMessage"
+).textContent=
+"🎯 PERFECT! Number was "
++lucky+
 ". +150 virtual coins";
 
 }
-
 else{
 
-numberMessage.textContent =
-"❌ Number was "+
-n+
+document.getElementById(
+"numberMessage"
+).textContent=
+"❌ Number was "
++lucky+
 ". Try again!";
 
 }
@@ -1517,9 +1313,7 @@ function spinWheel(){
 
 if(!spend(20))return;
 
-played();
-
-let prizes = [
+let prizes=[
 0,
 20,
 50,
@@ -1530,47 +1324,47 @@ let prizes = [
 50
 ];
 
-let i =
+let index=
 Math.floor(
 Math.random()*prizes.length
 );
 
-let p =
-prizes[i];
+let prize=prizes[index];
 
-wheelRotation +=
-720 + i*45;
+wheelRotation+=
+720+index*45;
 
-wheel.style.transform =
-"rotate("+
-wheelRotation+
+document.getElementById(
+"wheel"
+).style.transform=
+"rotate("
++wheelRotation+
 "deg)";
 
+setTimeout(function(){
 
-setTimeout(
-()=>{
+if(prize>0){
 
-if(p){
+addCoins(prize);
 
-win(p);
-
-wheelMessage.textContent =
-"🎉 You won +"+
-p+
+document.getElementById(
+"wheelMessage"
+).textContent=
+"🎉 You won +"
++prize+
 " virtual coins!";
 
 }
-
 else{
 
-wheelMessage.textContent =
+document.getElementById(
+"wheelMessage"
+).textContent=
 "🙂 Better luck next time!";
 
 }
 
-},
-2000
-);
+},2000);
 
 }
 
@@ -1581,46 +1375,48 @@ function playRoulette(choice){
 
 if(!spend(20))return;
 
-played();
-
-let r =
-[
+let options=[
 "red",
 "black",
 "green"
-][
+];
+
+let result=
+options[
 Math.floor(
 Math.random()*3
 )
 ];
 
+if(choice===result){
 
-if(choice===r){
+if(result==="green"){
 
-let p =
-r==="green"
-?
-200
-:
-80;
+addCoins(200);
 
-win(p);
+}
+else{
 
-rouletteMessage.textContent =
-"🎉 Result: "+
-r.toUpperCase()+
-" — You won +"+
-p+
-" virtual coins!";
+addCoins(80);
 
 }
 
+document.getElementById(
+"rouletteMessage"
+).textContent=
+"🎉 Result: "
++result.toUpperCase()
++" — You won!";
+
+}
 else{
 
-rouletteMessage.textContent =
-"❌ Result: "+
-r.toUpperCase()+
-" — Try again!";
+document.getElementById(
+"rouletteMessage"
+).textContent=
+"❌ Result: "
++result.toUpperCase()
++" — Try again!";
 
 }
 
@@ -1633,53 +1429,60 @@ function playBlackjack(){
 
 if(!spend(20))return;
 
-played();
-
-let p =
+let player=
 Math.floor(
 Math.random()*11
 )+10;
 
-let d =
+let dealer=
 Math.floor(
 Math.random()*11
 )+10;
 
-blackjackResult.textContent =
-"🃏 "+p+" vs "+d;
+document.getElementById(
+"blackjackResult"
+).textContent=
+"🃏 "
++player+
+" vs "
++dealer;
 
+if(player>21){
 
-if(p>21){
-
-blackjackMessage.textContent =
+document.getElementById(
+"blackjackMessage"
+).textContent=
 "💥 Bust!";
 
 }
-
 else if(
-p>d ||
-d>21
+player>dealer||
+dealer>21
 ){
 
-win(100);
+addCoins(100);
 
-blackjackMessage.textContent =
+document.getElementById(
+"blackjackMessage"
+).textContent=
 "🎉 You win! +100 virtual coins";
 
 }
+else if(player===dealer){
 
-else if(p===d){
+addCoins(20);
 
-win(20);
-
-blackjackMessage.textContent =
+document.getElementById(
+"blackjackMessage"
+).textContent=
 "🤝 Draw! +20 virtual coins";
 
 }
-
 else{
 
-blackjackMessage.textContent =
+document.getElementById(
+"blackjackMessage"
+).textContent=
 "❌ Dealer wins!";
 
 }
@@ -1691,7 +1494,14 @@ blackjackMessage.textContent =
 
 function updateLeaderboard(){
 
-let users = [];
+let box=
+document.getElementById(
+"leaderboard"
+);
+
+if(!box)return;
+
+let users=[];
 
 for(
 let i=0;
@@ -1699,51 +1509,58 @@ i<localStorage.length;
 i++
 ){
 
-let k =
+let key=
 localStorage.key(i);
 
-if(
-k &&
-k.startsWith("coins_")
-){
+if(key.startsWith("coins_")){
+
+let username=
+key.replace(
+"coins_",
+""
+);
+
+let value=
+Number(
+localStorage.getItem(key)
+)||0;
 
 users.push({
-user:k.substring(6),
-coins:
-Number(
-localStorage.getItem(k)
-)||0
+user:username,
+coins:value
 });
 
 }
 
 }
 
-
 users.sort(
-(a,b)=>
-b.coins-a.coins
+(a,b)=>b.coins-a.coins
 );
 
+if(users.length===0){
 
-leaderboard.innerHTML =
-users.length
-?
+box.innerHTML=
+"No players yet.";
+
+return;
+
+}
+
+box.innerHTML=
 users
 .slice(0,10)
 .map(
 (x,i)=>
-"<div style='padding:10px;border-bottom:1px solid #303a50'>"+
-(i+1)+
-". "+
-escapeHtml(x.user)+
-" — 🪙 "+
-x.coins+
-"</div>"
+"<div style='padding:10px;border-bottom:1px solid #303a50'>"
++(i+1)
++". "
++x.user
++" — 🪙 "
++x.coins
++"</div>"
 )
-.join("")
-:
-"No players yet.";
+.join("");
 
 }
 
@@ -1757,6 +1574,8 @@ showHome();
 }
 
 </script>
+
+</div>
 
 </body>
 </html>
